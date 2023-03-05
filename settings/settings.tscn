@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://rxdgdijyhrsb"]
+
+[ext_resource type="Script" path="res://settings/SettingsControls.gd" id="1_mmaky"]
+[ext_resource type="Script" path="res://settings/FullscreenToggle.gd" id="2_5l5tc"]
+[ext_resource type="Script" path="res://settings/SfxToggle.gd" id="3_n6nlb"]
+[ext_resource type="Script" path="res://settings/MusicToggle.gd" id="4_s1svy"]
+[ext_resource type="Script" path="res://settings/BackButton.gd" id="5_x47bl"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -27.0
+offset_top = -25.0
+offset_right = 1300.0
+offset_bottom = 743.0
+color = Color(0.501961, 0.223529, 0.27451, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_top = 64.0
+offset_right = 54.5
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Explainer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.500344
+anchor_top = 0.285
+anchor_right = 0.500344
+anchor_bottom = 0.285
+offset_left = -189.44
+offset_top = -26.2
+offset_right = 189.56
+offset_bottom = 25.8
+text = "Configure the game. Settings are automatically saved when changed."
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsControls" type="VFlowContainer" parent="." node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = 234.0
+offset_right = 77.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+shortcut_context = NodePath("")
+alignment = 1
+script = ExtResource("1_mmaky")
+
+[node name="FullscreenToggle" type="CheckButton" parent="SettingsControls"]
+layout_mode = 2
+text = "Fullscreen"
+script = ExtResource("2_5l5tc")
+
+[node name="SfxToggle" type="CheckButton" parent="SettingsControls"]
+layout_mode = 2
+text = "Sound Effects"
+script = ExtResource("3_n6nlb")
+
+[node name="MusicToggle" type="CheckButton" parent="SettingsControls"]
+layout_mode = 2
+text = "Music"
+script = ExtResource("4_s1svy")
+
+[node name="BackButton" type="Button" parent="SettingsControls"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("5_x47bl")
+
+[connection signal="toggled" from="SettingsControls/FullscreenToggle" to="SettingsControls/FullscreenToggle" method="_on_toggled"]
+[connection signal="toggled" from="SettingsControls/SfxToggle" to="SettingsControls/SfxToggle" method="_on_toggled"]
+[connection signal="toggled" from="SettingsControls/MusicToggle" to="SettingsControls/MusicToggle" method="_on_toggled"]
+[connection signal="pressed" from="SettingsControls/BackButton" to="SettingsControls/BackButton" method="_on_pressed"]
