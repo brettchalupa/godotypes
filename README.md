@@ -2,9 +2,11 @@
 
 Godot prototypes & experiments
 
+Made with Godot 4.0.
+
 ## Developing
 
-0. Install Godot 4
+0. Install Godot 4.0
 1. Clone the repository
 2. Open up `project.gdot`
 
