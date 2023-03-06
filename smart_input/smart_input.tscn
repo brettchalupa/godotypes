@@ -230,4 +230,11 @@ position = Vector2(5, 20)
 scale = Vector2(2, 2)
 texture = ExtResource("12_20tqh")
 
+[node name="ConnectedController" type="Label" parent="."]
+offset_left = 26.0
+offset_top = 633.0
+offset_right = 200.0
+offset_bottom = 659.0
+text = "Connected Controller: "
+
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

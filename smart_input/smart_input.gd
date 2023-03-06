@@ -5,11 +5,13 @@ enum ACTIVE_INPUTS {
 	JOYPAD,
 }
 var active_input = ACTIVE_INPUTS.KEYBOARD
+var active_joypad
 
 func _on_main_menu_button_pressed():
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
 
 func _input(event):
+	print_debug(event)
 	if active_input != ACTIVE_INPUTS.KEYBOARD and event.get_class() == "InputEventKey":
 		active_input = ACTIVE_INPUTS.KEYBOARD
 		display_input_aware_controls()
@@ -33,13 +35,20 @@ func display_input_aware_controls():
 		get_tree().call_group("control-joypad", "hide")
 
 func _on_joy_connection_changed(device_id, connected):
+	if connected:
+		active_joypad = device_id
 	check_for_active_input()
 
 func check_for_active_input():
 	var last_input = active_input
 	if Input.get_connected_joypads().size() > 0:
+		if active_joypad == null:
+			active_joypad = 0
+		$ConnectedController.text = "Controller: " + Input.get_joy_name(active_joypad)
+		$ConnectedController.show()
 		active_input = ACTIVE_INPUTS.JOYPAD
 	else:
+		$ConnectedController.hide()
 		active_input = ACTIVE_INPUTS.KEYBOARD
 	
 	if last_input != active_input:
