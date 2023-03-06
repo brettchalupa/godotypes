@@ -32,6 +32,14 @@ offset_bottom = 136.0
 text = "Input UI changes based on last used input method with support for controller-specific icons."
 autowrap_mode = 2
 
+[node name="Credit" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 670.0
+offset_right = 328.0
+offset_bottom = 700.0
+text = "Assets by Kenney (CC0)"
+autowrap_mode = 2
+
 [node name="MainMenuButton" type="Button" parent="."]
 offset_left = 1096.0
 offset_top = 24.0

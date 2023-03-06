@@ -8,8 +8,10 @@ radius = 9.0
 height = 38.0
 
 [node name="Beam" type="CharacterBody2D"]
-position = Vector2(0, -9)
+position = Vector2(0, -18)
 scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_ycbwi")
 
