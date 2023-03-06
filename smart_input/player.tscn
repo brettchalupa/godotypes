@@ -26,4 +26,4 @@ shape = SubResource("CapsuleShape2D_lo7b1")
 
 [node name="BlastSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tg0r4")
-volume_db = -2.0
+volume_db = -10.0
