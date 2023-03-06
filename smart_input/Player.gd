@@ -18,7 +18,7 @@ func _physics_process(delta):
 		var beam = weapon.instantiate()
 		beam.global_position = global_position
 		beam.fire(rotation)
-		$BlastSfx.play()
+		Sound.play_sfx($BlastSfx)
 		get_tree().get_root().add_child(beam)
 
 	move_and_slide()
