@@ -11,7 +11,6 @@ func _on_main_menu_button_pressed():
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
 
 func _input(event):
-	print_debug(event)
 	if active_input != ACTIVE_INPUTS.KEYBOARD and event.get_class() == "InputEventKey":
 		active_input = ACTIVE_INPUTS.KEYBOARD
 		display_input_aware_controls()
