@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://urk6g60i43s3"]
+
+[ext_resource type="Script" path="res://smart_input/smart_input.gd" id="1_ra5pg"]
+[ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://smart_input/star_small.png" id="2_4ih8t"]
+[ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://smart_input/star_tiny.png" id="3_r3y8o"]
+[ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://smart_input/star_medium.png" id="4_pd8ra"]
+[ext_resource type="PackedScene" uid="uid://rejuxgm2kk5n" path="res://smart_input/player.tscn" id="5_xra0w"]
+
+[node name="SmartInput" type="Node2D"]
+script = ExtResource("1_ra5pg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -56.0
+offset_top = -48.0
+offset_right = 1312.0
+offset_bottom = 744.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 185.0
+offset_bottom = 58.0
+theme_type_variation = &"HeaderLarge"
+text = "Smart Input"
+
+[node name="Description" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 328.0
+offset_bottom = 136.0
+text = "Input UI changes based on last used input method with support for controller-specific icons."
+autowrap_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 1096.0
+offset_top = 24.0
+offset_right = 1253.0
+offset_bottom = 55.0
+text = "Back to Main Menu"
+
+[node name="Stars" type="Node" parent="."]
+
+[node name="StarSmall" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(104, 568)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarSmall6" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(984, 160)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarSmall7" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(152, 272)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarSmall8" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(696, 608)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarTiny" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(512, 488)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_r3y8o")
+
+[node name="StarSmall2" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(344, 384)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarSmall3" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(472, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarSmall4" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(1080, 272)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarSmall5" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(824, 336)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4ih8t")
+
+[node name="StarMedium" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(1080, 568)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_pd8ra")
+
+[node name="StarMedium2" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.470588)
+position = Vector2(600, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_pd8ra")
+
+[node name="Player" parent="." instance=ExtResource("5_xra0w")]
+position = Vector2(599, 352)
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

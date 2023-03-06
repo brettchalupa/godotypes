@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwwowp2077kmn"]
+
+[ext_resource type="Script" path="res://smart_input/beam.gd" id="1_ycbwi"]
+[ext_resource type="Texture2D" uid="uid://i4umlnqql86t" path="res://smart_input/ship_B.png" id="2_0tcra"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wj6py"]
+radius = 9.0
+height = 38.0
+
+[node name="Beam" type="CharacterBody2D"]
+position = Vector2(0, -9)
+scale = Vector2(0.25, 0.25)
+motion_mode = 1
+script = ExtResource("1_ycbwi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("2_0tcra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_wj6py")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
