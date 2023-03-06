@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://urk6g60i43s3"]
+[gd_scene load_steps=13 format=3 uid="uid://urk6g60i43s3"]
 
 [ext_resource type="Script" path="res://smart_input/smart_input.gd" id="1_ra5pg"]
 [ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://smart_input/star_small.png" id="2_4ih8t"]
 [ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://smart_input/star_tiny.png" id="3_r3y8o"]
 [ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://smart_input/star_medium.png" id="4_pd8ra"]
 [ext_resource type="PackedScene" uid="uid://rejuxgm2kk5n" path="res://smart_input/player.tscn" id="5_xra0w"]
+[ext_resource type="Texture2D" uid="uid://cpr745xa54swb" path="res://assets/icons/icon-key-a.png" id="6_riurc"]
+[ext_resource type="Texture2D" uid="uid://8070wu7b7xnb" path="res://assets/icons/icon-key-d.png" id="7_85jp6"]
+[ext_resource type="Texture2D" uid="uid://qfjmn0sulyq1" path="res://assets/icons/icon-key-w.png" id="8_krbm4"]
+[ext_resource type="Texture2D" uid="uid://dono45l65ja66" path="res://assets/icons/icon-key-j.png" id="9_nvj7g"]
+[ext_resource type="Texture2D" uid="uid://sfmakjb6x781" path="res://assets/icons/icon-dpad-left-right.png" id="10_0jumk"]
+[ext_resource type="Texture2D" uid="uid://c1g17rqhoqwlg" path="res://assets/icons/icon-dpad-up.png" id="11_swosm"]
+[ext_resource type="Texture2D" uid="uid://cje1yjsmtugc6" path="res://assets/icons/icon-button-a.png" id="12_20tqh"]
 
 [node name="SmartInput" type="Node2D"]
 script = ExtResource("1_ra5pg")
@@ -117,5 +124,110 @@ texture = ExtResource("4_pd8ra")
 
 [node name="Player" parent="." instance=ExtResource("5_xra0w")]
 position = Vector2(599, 352)
+
+[node name="Controls" type="Node2D" parent="."]
+position = Vector2(1108, 675)
+
+[node name="Controls" type="Label" parent="Controls"]
+offset_left = 37.0
+offset_top = -135.0
+offset_right = 135.0
+offset_bottom = -98.0
+theme_type_variation = &"HeaderMedium"
+text = "Controls"
+
+[node name="Thrust" type="Control" parent="Controls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 50.0
+offset_top = -75.0
+offset_right = 101.0
+offset_bottom = -48.0
+
+[node name="Label" type="Label" parent="Controls/Thrust"]
+layout_mode = 2
+offset_left = 34.0
+offset_top = -11.0
+offset_right = 85.0
+offset_bottom = 15.0
+text = "Thrust
+"
+
+[node name="Icon-key-w" type="Sprite2D" parent="Controls/Thrust" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(9, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("8_krbm4")
+
+[node name="Icon-dpad-up" type="Sprite2D" parent="Controls/Thrust" groups=["control-joypad"]]
+visible = false
+texture_filter = 1
+position = Vector2(8, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("11_swosm")
+
+[node name="Turn" type="Control" parent="Controls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 62.0
+offset_right = 226.0
+offset_bottom = 82.0
+
+[node name="Label" type="Label" parent="Controls/Turn"]
+layout_mode = 2
+offset_left = -90.0
+offset_top = -108.0
+offset_right = -53.0
+offset_bottom = -82.0
+text = "Turn"
+
+[node name="Icon-key-d" type="Sprite2D" parent="Controls/Turn" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(-117, -96)
+scale = Vector2(2, 2)
+texture = ExtResource("7_85jp6")
+
+[node name="Icon-key-a" type="Sprite2D" parent="Controls/Turn" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(-148, -96)
+scale = Vector2(2, 2)
+texture = ExtResource("6_riurc")
+
+[node name="Icon-dpad-left-right" type="Sprite2D" parent="Controls/Turn" groups=["control-joypad"]]
+visible = false
+texture_filter = 1
+position = Vector2(-118, -95)
+scale = Vector2(2, 2)
+texture = ExtResource("10_0jumk")
+
+[node name="Blast" type="Control" parent="Controls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 53.0
+offset_top = -11.0
+offset_right = 104.0
+offset_bottom = 16.0
+
+[node name="Label" type="Label" parent="Controls/Blast"]
+layout_mode = 2
+offset_left = 28.0
+offset_top = 5.0
+offset_right = 79.0
+offset_bottom = 31.0
+text = "Blast"
+
+[node name="Icon-key-j" type="Sprite2D" parent="Controls/Blast" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(6, 18)
+scale = Vector2(2, 2)
+texture = ExtResource("9_nvj7g")
+
+[node name="Icon-button-a" type="Sprite2D" parent="Controls/Blast" groups=["control-joypad"]]
+visible = false
+texture_filter = 1
+position = Vector2(5, 20)
+scale = Vector2(2, 2)
+texture = ExtResource("12_20tqh")
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
