@@ -34,8 +34,8 @@ text = "Smart Input"
 [node name="Description" type="Label" parent="."]
 offset_left = 24.0
 offset_top = 58.0
-offset_right = 328.0
-offset_bottom = 136.0
+offset_right = 410.0
+offset_bottom = 120.0
 text = "Input UI changes based on last used input method with support for controller-specific icons."
 autowrap_mode = 2
 
