@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
-const SPEED_HORIZ = 500.0
-const SPEED_VERT = 400.0
-
+const MAX_SPEED_HORIZ = 500.0
+const MAX_SPEED_VERT = 500.0
+const DECEL = 2600.0
+const ACCEL = 4200.0
+const ACCEL_VERT = 4200.0
+const ACCEL_HORIZ = 6400.0
 @export var field:ColorRect
 @export var weapon:PackedScene
 @onready var weapon_sfx := $BlastSfx
@@ -11,19 +14,25 @@ const SPEED_VERT = 400.0
 var rate_of_fire := 0.3
 var fire_delay_counter := 0.0
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
 	direction.x = Input.get_axis("ui_left", "ui_right")
 	direction.y = Input.get_axis("ui_up", "ui_down")
 	direction = direction.normalized()
-	if abs(direction.x) > 0:
-		velocity.x = direction.x * SPEED_HORIZ
+
+	if direction.x > 0:
+		velocity.x = move_toward(velocity.x, MAX_SPEED_HORIZ, delta * ACCEL_HORIZ)
+	elif direction.x < 0:
+		velocity.x = move_toward(velocity.x, -MAX_SPEED_HORIZ, delta * ACCEL_HORIZ)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED_HORIZ)
-	if abs(direction.y) > 0:
-		velocity.y = direction.y * SPEED_VERT
+		velocity.x = move_toward(velocity.x, 0, delta * DECEL)
+
+	if direction.y > 0:
+		velocity.y = move_toward(velocity.y, MAX_SPEED_VERT, delta * ACCEL_VERT)
+	elif direction.y < 0:
+		velocity.y = move_toward(velocity.y, -MAX_SPEED_VERT, delta * ACCEL_VERT)
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED_VERT)
+		velocity.y = move_toward(velocity.y, 0, delta * DECEL)
 
 	move_and_slide()
 
