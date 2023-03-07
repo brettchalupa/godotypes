@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brl4vls3iat2u"
-path="res://.godot/imported/star_medium.png-93e37e15533c23a9593f11a7bdefd04e.ctex"
+uid="uid://i4umlnqql86t"
+path="res://.godot/imported/ship_B.png-131492025d50a81f949d6c48e84ad96c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://smart_input/star_medium.png"
-dest_files=["res://.godot/imported/star_medium.png-93e37e15533c23a9593f11a7bdefd04e.ctex"]
+source_file="res://assets/simple_space/ship_B.png"
+dest_files=["res://.godot/imported/ship_B.png-131492025d50a81f949d6c48e84ad96c.ctex"]
 
 [params]
 
