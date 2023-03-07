@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://6w3iko7xkh3y"]
+[gd_scene load_steps=5 format=3 uid="uid://6w3iko7xkh3y"]
 
 [ext_resource type="Texture2D" uid="uid://d0kqec6uqfxqr" path="res://assets/simple_space/ship_sidesC.png" id="1_86bgq"]
 [ext_resource type="Script" path="res://bullet_heck/player.gd" id="1_qa0n4"]
+[ext_resource type="PackedScene" uid="uid://c0qnivrsqv6" path="res://bullet_heck/bullet.tscn" id="2_wypbk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1yxw"]
 radius = 6.0
@@ -10,6 +11,7 @@ height = 24.0
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_qa0n4")
+weapon = ExtResource("2_wypbk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
