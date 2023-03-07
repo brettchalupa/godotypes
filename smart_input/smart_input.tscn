@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://1kq7pkbpy0lo"]
 
 [ext_resource type="Script" path="res://smart_input/smart_input.gd" id="1_ra5pg"]
 [ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://assets/simple_space/star_small.png" id="2_4ih8t"]
 [ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://assets/simple_space/star_tiny.png" id="3_r3y8o"]
 [ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://assets/simple_space/star_medium.png" id="4_pd8ra"]
-[ext_resource type="PackedScene" uid="uid://rejuxgm2kk5n" path="res://smart_input/player.tscn" id="5_xra0w"]
+[ext_resource type="PackedScene" uid="uid://c3lxpsfoyhf4w" path="res://smart_input/player.tscn" id="5_xra0w"]
 [ext_resource type="Texture2D" uid="uid://cpr745xa54swb" path="res://assets/icons/icon-key-a.png" id="6_riurc"]
 [ext_resource type="Texture2D" uid="uid://8070wu7b7xnb" path="res://assets/icons/icon-key-d.png" id="7_85jp6"]
 [ext_resource type="Texture2D" uid="uid://qfjmn0sulyq1" path="res://assets/icons/icon-key-w.png" id="8_krbm4"]

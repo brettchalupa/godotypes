@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfisty8d4wd58"]
+[gd_scene load_steps=8 format=3 uid="uid://dfisty8d4wd58"]
 
 [ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
 [ext_resource type="PackedScene" uid="uid://6w3iko7xkh3y" path="res://bullet_heck/player.tscn" id="2_4rhco"]
+[ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://assets/simple_space/star_small.png" id="2_hgefi"]
 [ext_resource type="PackedScene" uid="uid://dioslgdbdpqp4" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
+[ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://assets/simple_space/star_tiny.png" id="3_yydnk"]
+[ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://assets/simple_space/star_medium.png" id="4_cpk5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bw6d"]
 size = Vector2(640, 720)
@@ -13,7 +16,7 @@ script = ExtResource("1_xb8pk")
 [node name="BG" type="ColorRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-color = Color(0.160784, 0.4, 0.356863, 1)
+color = Color(0.231373, 0.329412, 0.376471, 1)
 
 [node name="Title" type="Label" parent="."]
 offset_left = 24.0
@@ -62,12 +65,92 @@ visible = false
 position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_2bw6d")
 
+[node name="Stars" type="Node" parent="."]
+
+[node name="StarSmall" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(448, 624)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarSmall6" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(904, 40)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarSmall7" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(416, 216)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarSmall8" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(696, 608)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarTiny" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(512, 488)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yydnk")
+
+[node name="StarSmall2" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(344, 384)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarSmall3" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(480, 56)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarSmall4" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(920, 232)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarSmall5" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(824, 336)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hgefi")
+
+[node name="StarMedium" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(864, 552)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cpk5y")
+
+[node name="StarMedium2" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(600, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cpk5y")
+
+[node name="StarMedium3" type="Sprite2D" parent="Stars"]
+modulate = Color(1, 1, 1, 0.14902)
+position = Vector2(712, 384)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_cpk5y")
+
 [node name="Player" parent="." node_paths=PackedStringArray("field") instance=ExtResource("2_4rhco")]
 position = Vector2(640, 640)
 field = NodePath("../Field/FieldRect")
 
 [node name="Enemy" parent="." instance=ExtResource("3_32knl")]
-position = Vector2(640, 64)
+position = Vector2(512, 128)
+rotation = 3.14159
+fire_pattern = 2
+bullet_lifetime = 3.0
+
+[node name="Enemy2" parent="." instance=ExtResource("3_32knl")]
+position = Vector2(768, 128)
 rotation = 3.14159
 fire_pattern = 2
 bullet_lifetime = 3.0
