@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfisty8d4wd58"]
+[gd_scene load_steps=5 format=3 uid="uid://dfisty8d4wd58"]
 
 [ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
 [ext_resource type="PackedScene" uid="uid://6w3iko7xkh3y" path="res://bullet_heck/player.tscn" id="2_4rhco"]
+[ext_resource type="PackedScene" uid="uid://dioslgdbdpqp4" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bw6d"]
 size = Vector2(640, 720)
@@ -64,3 +65,9 @@ shape = SubResource("RectangleShape2D_2bw6d")
 [node name="Player" parent="." node_paths=PackedStringArray("field") instance=ExtResource("2_4rhco")]
 position = Vector2(640, 640)
 field = NodePath("../Field/FieldRect")
+
+[node name="Enemy" parent="." instance=ExtResource("3_32knl")]
+position = Vector2(640, 64)
+rotation = 3.14159
+fire_pattern = 2
+bullet_lifetime = 3.0

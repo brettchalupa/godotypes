@@ -37,9 +37,9 @@ func _process(delta: float) -> void:
 		fire_delay_counter = rate_of_fire
 		var bullet = weapon.instantiate()
 		bullet.global_position = global_position
-		bullet.fire(0)
 		Sound.play_sfx(weapon_sfx)
 		get_tree().get_root().add_child(bullet)
+		bullet.fire(0)
 		
 	if Input.is_action_just_released("ui_accept"):
 		fire_delay_counter = 0.0
