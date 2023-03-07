@@ -18,9 +18,6 @@ func _input(event):
 		active_input = ACTIVE_INPUTS.JOYPAD
 		display_input_aware_controls()
 
-	if event.is_action_pressed("pause"):
-		get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
-
 func _ready():
 	check_for_active_input()
 	Input.connect("joy_connection_changed", _on_joy_connection_changed)

@@ -104,6 +104,11 @@ script = ExtResource("3_mjvto")
 layout_mode = 2
 text = "Smart Input"
 
+[node name="BulletHeckButton" type="Button" parent="PrototypesGrid"]
+layout_mode = 2
+text = "Bullet Heck"
+
 [connection signal="pressed" from="MenuOptions/Settings" to="MenuOptions" method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuOptions/Quit" to="MenuOptions" method="_on_quit_pressed"]
-[connection signal="pressed" from="PrototypesGrid/SmartInputButton" to="PrototypesGrid" method="_on_smart_input_button_pressed"]
+[connection signal="pressed" from="PrototypesGrid/SmartInputButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["smart_input"]]
+[connection signal="pressed" from="PrototypesGrid/BulletHeckButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["bullet_heck"]]

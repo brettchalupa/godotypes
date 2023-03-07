@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfisty8d4wd58"]
+
+[ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bw6d"]
+size = Vector2(640, 720)
+
+[node name="BulletHeck" type="Node2D"]
+script = ExtResource("1_xb8pk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -56.0
+offset_top = -48.0
+offset_right = 1312.0
+offset_bottom = 744.0
+color = Color(0.207843, 0.490196, 0.439216, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 185.0
+offset_bottom = 58.0
+theme_type_variation = &"HeaderLarge"
+text = "Bullet Heck"
+
+[node name="Description" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 410.0
+offset_bottom = 120.0
+text = "Shoot 'em up"
+autowrap_mode = 2
+
+[node name="Credit" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 670.0
+offset_right = 328.0
+offset_bottom = 700.0
+text = "Assets by Kenney (CC0)"
+autowrap_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 1096.0
+offset_top = 24.0
+offset_right = 1253.0
+offset_bottom = 55.0
+text = "Back to Main Menu"
+
+[node name="Field" type="Area2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="ColorRect" type="ColorRect" parent="Field"]
+offset_left = 320.0
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0.364706, 0.439216, 0.54902, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Field"]
+position = Vector2(640, 360)
+shape = SubResource("RectangleShape2D_2bw6d")
