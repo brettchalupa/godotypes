@@ -9,7 +9,7 @@ height = 16.0
 
 [node name="Bullet" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 4
 gravity_scale = 2.66454e-15
 script = ExtResource("1_r63to")
 
@@ -24,6 +24,5 @@ shape = SubResource("CapsuleShape2D_wj6py")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
