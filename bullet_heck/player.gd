@@ -5,12 +5,13 @@ const SPEED_VERT = 400.0
 
 @export var field:ColorRect
 @export var weapon:PackedScene
+@onready var weapon_sfx := $BlastSfx
 
 ## delay in seconds between shots
 var rate_of_fire := 0.3
 var fire_delay_counter := 0.0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction := Vector2.ZERO
 	direction.x = Input.get_axis("ui_left", "ui_right")
 	direction.y = Input.get_axis("ui_up", "ui_down")
@@ -37,7 +38,7 @@ func _process(delta: float) -> void:
 		var bullet = weapon.instantiate()
 		bullet.global_position = global_position
 		bullet.fire(0)
-		Sound.play_sfx($BlastSfx)
+		Sound.play_sfx(weapon_sfx)
 		get_tree().get_root().add_child(bullet)
 		
 	if Input.is_action_just_released("ui_accept"):

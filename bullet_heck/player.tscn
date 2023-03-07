@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6w3iko7xkh3y"]
+[gd_scene load_steps=6 format=3 uid="uid://6w3iko7xkh3y"]
 
 [ext_resource type="Texture2D" uid="uid://d0kqec6uqfxqr" path="res://assets/simple_space/ship_sidesC.png" id="1_86bgq"]
 [ext_resource type="Script" path="res://bullet_heck/player.gd" id="1_qa0n4"]
 [ext_resource type="PackedScene" uid="uid://c0qnivrsqv6" path="res://bullet_heck/bullet.tscn" id="2_wypbk"]
+[ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="3_w0re1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1yxw"]
 radius = 6.0
@@ -20,3 +21,5 @@ texture = ExtResource("1_86bgq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_c1yxw")
+
+[node name="BlastSfx" parent="." instance=ExtResource("3_w0re1")]

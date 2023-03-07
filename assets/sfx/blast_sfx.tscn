@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdfiflsa87lrn"]
+
+[ext_resource type="AudioStream" uid="uid://nfv26afr18si" path="res://assets/sfx/laserRetro_004.ogg" id="1_aokbd"]
+
+[node name="BlastSfx" type="AudioStreamPlayer"]
+stream = ExtResource("1_aokbd")
+volume_db = -12.0
