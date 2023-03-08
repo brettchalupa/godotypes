@@ -10,6 +10,10 @@ Made with Godot 4.0.
 1. Clone the repository
 2. Open up `project.gdot`
 
+## Debug Shortcuts
+
+- <kbd>0</kbd> — toggle debug UI
+
 ## Build Exports
 
 The `export` script uses Ruby for now (sorry). Run it with:
