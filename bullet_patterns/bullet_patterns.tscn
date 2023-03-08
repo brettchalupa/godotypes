@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnjjmfu7c43ja"]
 
 [ext_resource type="Script" path="res://bullet_patterns/bullet_patterns.gd" id="1_ljx16"]
-[ext_resource type="PackedScene" uid="uid://dioslgdbdpqp4" path="res://bullet_heck/enemy.tscn" id="2_o3klj"]
+[ext_resource type="PackedScene" uid="uid://b5hx824k1fyiy" path="res://bullet_heck/enemy.tscn" id="2_o3klj"]
 
 [node name="BulletPatterns" type="Node2D"]
 script = ExtResource("1_ljx16")
@@ -44,6 +44,7 @@ text = "Back to Main Menu"
 
 [node name="Enemy" parent="." instance=ExtResource("2_o3klj")]
 position = Vector2(224, 300)
+bullet_lifetime = 1.0
 
 [node name="Label" type="Label" parent="Enemy"]
 offset_left = -102.0
@@ -57,6 +58,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Enemy - Double" parent="." instance=ExtResource("2_o3klj")]
 position = Vector2(547, 295)
 fire_pattern = 1
+bullet_lifetime = 1.0
 
 [node name="Label" type="Label" parent="Enemy - Double"]
 offset_left = -102.0
@@ -70,6 +72,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Enemy - Spread" parent="." instance=ExtResource("2_o3klj")]
 position = Vector2(348, 519)
 fire_pattern = 2
+bullet_lifetime = 1.0
 
 [node name="Label" type="Label" parent="Enemy - Spread"]
 offset_left = -102.0
@@ -83,6 +86,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Enemy - Circle" parent="." instance=ExtResource("2_o3klj")]
 position = Vector2(681, 517)
 fire_pattern = 3
+bullet_lifetime = 1.0
 
 [node name="Label" type="Label" parent="Enemy - Circle"]
 offset_left = -102.0
@@ -97,6 +101,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(879, 298)
 fire_pattern = 2
 bullet_movement = 1
+bullet_lifetime = 1.0
 
 [node name="Label" type="Label" parent="Enemy - Wiggly"]
 offset_left = -102.0
@@ -111,6 +116,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1027, 518)
 fire_pattern = 3
 bullet_movement = 2
+bullet_lifetime = 1.0
 
 [node name="Label" type="Label" parent="Enemy - Arc"]
 offset_left = -102.0
