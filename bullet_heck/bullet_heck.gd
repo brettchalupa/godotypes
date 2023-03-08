@@ -26,3 +26,6 @@ func _on_game_over_timer_timeout() -> void:
 
 func _on_player_damaged(_new_health) -> void:
 	set_hp()
+
+func _on_enemy_spawner_wave_started(wave) -> void:
+	$UI/Wave.text = "Wave: " + str(wave)

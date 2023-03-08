@@ -201,6 +201,14 @@ horizontal_alignment = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="Wave" type="Label" parent="UI"]
+offset_left = 984.0
+offset_top = 576.0
+offset_right = 1075.0
+offset_bottom = 613.0
+theme_type_variation = &"HeaderMedium"
+text = "Wave: 1"
+
 [node name="PlayerHealth" type="Label" parent="UI"]
 offset_left = 984.0
 offset_top = 661.0
@@ -218,5 +226,6 @@ show_percentage = false
 
 [connection signal="damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="wave_started" from="EnemySpawner" to="." method="_on_enemy_spawner_wave_started"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="_on_wave_delay_timeout"]
 [connection signal="timeout" from="GameOver/GameOverTimer" to="." method="_on_game_over_timer_timeout"]

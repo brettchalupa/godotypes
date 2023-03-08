@@ -108,8 +108,10 @@ enum Anchor {
 @export var enemy_scene:PackedScene
 @export var current_wave = 1
 var enemies_in_wave = []
+signal wave_started(wave:int)
 
 func start_wave():
+	emit_signal("wave_started", current_wave)
 	print_debug("starting wave: " + str(current_wave))
 	
 	if current_wave in waves:
