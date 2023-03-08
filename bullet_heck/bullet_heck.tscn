@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfisty8d4wd58"]
+[gd_scene load_steps=10 format=3 uid="uid://dfisty8d4wd58"]
 
 [ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
 [ext_resource type="PackedScene" uid="uid://6w3iko7xkh3y" path="res://bullet_heck/player.tscn" id="2_4rhco"]
+[ext_resource type="Script" path="res://bullet_heck/stars.gd" id="2_bko3k"]
 [ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://assets/simple_space/star_small.png" id="2_hgefi"]
 [ext_resource type="PackedScene" uid="uid://b5hx824k1fyiy" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
 [ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://assets/simple_space/star_tiny.png" id="3_yydnk"]
@@ -66,7 +67,9 @@ visible = false
 position = Vector2(640, 360)
 shape = SubResource("RectangleShape2D_2bw6d")
 
-[node name="Stars" type="Node" parent="."]
+[node name="Stars" type="Node" parent="." node_paths=PackedStringArray("field")]
+script = ExtResource("2_bko3k")
+field = NodePath("../Field/FieldRect")
 
 [node name="StarSmall" type="Sprite2D" parent="Stars"]
 modulate = Color(1, 1, 1, 0.14902)
