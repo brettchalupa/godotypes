@@ -26,4 +26,11 @@ shape = SubResource("CapsuleShape2D_c1yxw")
 
 [node name="BlastSfx" parent="." instance=ExtResource("3_w0re1")]
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = 32.0
+offset_right = 21.0
+offset_bottom = 39.0
+show_percentage = false
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]

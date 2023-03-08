@@ -199,6 +199,24 @@ text = "DEBUG
 1 - Toggle Invincibility"
 horizontal_alignment = 2
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealth" type="Label" parent="UI"]
+offset_left = 984.0
+offset_top = 661.0
+offset_right = 1044.0
+offset_bottom = 698.0
+theme_type_variation = &"HeaderMedium"
+text = "HP: 5"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="UI"]
+offset_left = 984.0
+offset_top = 648.0
+offset_right = 1048.0
+offset_bottom = 659.0
+show_percentage = false
+
+[connection signal="damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="_on_wave_delay_timeout"]
 [connection signal="timeout" from="GameOver/GameOverTimer" to="." method="_on_game_over_timer_timeout"]

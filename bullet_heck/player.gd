@@ -11,6 +11,7 @@ const ACCEL_HORIZ = 6400.0
 @export var max_health = 6
 @onready var health = max_health
 @onready var weapon_sfx := $BlastSfx
+@onready var health_bar := $HealthBar
 var invincible := false
 signal damaged(new_health:int)
 signal died
@@ -21,6 +22,10 @@ var strength = 5
 ## delay in seconds between shots
 var rate_of_fire := 0.3
 var fire_delay_counter := 0.0
+
+func _ready() -> void:
+	health_bar.max_value = max_health
+	health_bar.value = health
 
 func _physics_process(delta: float) -> void:
 	var direction := Vector2.ZERO
@@ -64,6 +69,7 @@ func damage(amount):
 		return
 
 	health -= amount
+	health_bar.value = health
 	damaged.emit(health)
 
 	if health <= 0:
