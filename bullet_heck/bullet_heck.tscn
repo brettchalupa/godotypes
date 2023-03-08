@@ -53,7 +53,7 @@ text = "Back to Main Menu"
 [node name="Field" type="Area2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 collision_layer = 0
-collision_mask = 0
+collision_mask = 15
 
 [node name="FieldRect" type="ColorRect" parent="Field"]
 offset_left = 320.0

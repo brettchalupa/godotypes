@@ -9,12 +9,12 @@ enum FirePattern {
 
 @export var fire_pattern:FirePattern = FirePattern.SINGLE
 @export var bullet_movement:Bullet.BulletMovement = Bullet.BulletMovement.STRAIGHT
-@export var fire_delay:float = 1
+@export var fire_delay:float = 1.5
 @export var bullet_lifetime:float = 3
 @export var bullet_scene:PackedScene
 @onready var weapon_sfx := $WeaponSfx
 @onready var timer := $FireTimer
-@export var health := 6
+@export var health := 5
 var target_pos = null
 var reached_target_pos := false
 
