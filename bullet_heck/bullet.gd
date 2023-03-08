@@ -26,7 +26,7 @@ func _process(_delta):
 	if timer.time_left / timer.wait_time < 0.25:
 		$Sprite2D.modulate.a = timer.time_left / timer.wait_time
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	match movement:
 		BulletMovement.STRAIGHT:
 			# move as normal with linear velocity

@@ -109,14 +109,6 @@ enum Anchor {
 @export var current_wave = 1
 var enemies_in_wave = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func start_wave():
 	print_debug("starting wave: " + str(current_wave))
 	
@@ -127,8 +119,8 @@ func start_wave():
 			enemy.fire_pattern = enemy_attrs.fire_pattern
 			enemy.bullet_movement = enemy_attrs.bullet_movement
 			enemy.rotation = deg_to_rad(180)
-			# TODO: have enemy fly into position instead of spawning in the field
-			enemy.global_position = pos_for_anchor(enemy_attrs.anchor)
+			enemy.target_pos = pos_for_anchor(enemy_attrs.anchor)
+			enemy.global_position = enemy.target_pos - Vector2(0, 400)
 			enemies_in_wave.push_back(enemy)
 			enemy.connect("died", _enemy_died.bind(enemy))
 			$Enemies.add_child(enemy)

@@ -10,7 +10,7 @@ radius = 32.0156
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 4
-mass = 10.0
+mass = 1000.0
 gravity_scale = 2.66454e-15
 script = ExtResource("1_1o58s")
 bullet_scene = ExtResource("2_23cw4")

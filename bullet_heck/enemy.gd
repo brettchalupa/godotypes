@@ -14,14 +14,31 @@ enum FirePattern {
 @export var bullet_scene:PackedScene
 @onready var weapon_sfx := $WeaponSfx
 @onready var timer := $FireTimer
-@export var health := 3
+@export var health := 6
+var target_pos = null
+var reached_target_pos := false
+
+var speed = 300.0
 
 signal died
 
 func _ready() -> void:
 	timer.wait_time = fire_delay
-	timer.start()
+	if target_pos == null:
+		_reached_pos()
 
+func _physics_process(delta: float) -> void:
+	if target_pos != null and !reached_target_pos:
+		position = position.move_toward(target_pos, delta * speed)
+		if position.distance_to(target_pos) == 0:
+			_reached_pos()
+
+	move_and_collide(linear_velocity)
+
+func _reached_pos():
+		reached_target_pos = true
+		_on_fire_timer_timeout()
+		timer.start()
 func _on_fire_timer_timeout() -> void:
 	match fire_pattern:
 		FirePattern.SINGLE:
@@ -40,7 +57,7 @@ func _on_fire_timer_timeout() -> void:
 		FirePattern.CIRCLE:
 			var shots = 16
 			for n in shots:
-				fire_bullet(global_position, (360 / shots) * n)
+				fire_bullet(global_position, 360.0 / shots * n)
 			Sound.play_sfx(weapon_sfx)
 
 func fire_bullet(pos: Vector2, angle_deg: float):
