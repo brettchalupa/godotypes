@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3lxpsfoyhf4w"]
 
 [ext_resource type="Script" path="res://smart_input/Player.gd" id="1_e8653"]
-[ext_resource type="PackedScene" path="res://smart_input/beam.tscn" id="2_tvj2s"]
+[ext_resource type="PackedScene" uid="uid://cpdfw2v6wm3ad" path="res://smart_input/beam.tscn" id="2_tvj2s"]
 [ext_resource type="Texture2D" uid="uid://dgmbumcxmc6xp" path="res://assets/simple_space/ship_sidesA.png" id="3_0p8wu"]
 [ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="4_lcgp7"]
 

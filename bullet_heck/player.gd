@@ -10,6 +10,9 @@ const ACCEL_HORIZ = 6400.0
 @export var weapon:PackedScene
 @onready var weapon_sfx := $BlastSfx
 
+## damage done to objects the player collides with
+var strength = 5
+
 ## delay in seconds between shots
 var rate_of_fire := 0.3
 var fire_delay_counter := 0.0
@@ -38,6 +41,20 @@ func _physics_process(delta: float) -> void:
 
 	if field != null:
 		position = position.clamp(field.position, field.position + field.size)
+		
+#	_handle_collisions()
+#
+#func _handle_collisions() -> void:
+#	for i in get_slide_collision_count():
+#		var collision := get_slide_collision(i)
+#		var collider := collision.get_collider()
+#
+#		if collider.has_method("")
+#		print("Collided with: ", collider.name)
+#		collider.queue_free()
+
+func damage(amount):
+	print_debug("damaged for " + str(amount))
 
 func _process(delta: float) -> void:
 	fire_delay_counter -= delta
@@ -52,3 +69,11 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_released("ui_accept"):
 		fire_delay_counter = 0.0
+
+
+func _on_input_event(viewport, event, shape_idx):
+	print_debug("player on input event")
+	print_debug(viewport)
+	print_debug(event)
+	print_debug(shape_idx)
+	pass # Replace with function body.

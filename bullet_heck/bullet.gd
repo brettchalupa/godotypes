@@ -2,6 +2,7 @@ class_name Bullet extends RigidBody2D
 
 const SPEED := 600.0
 @onready var timer := $Timer
+var strength = 1
 
 enum BulletMovement {
 	STRAIGHT,
@@ -10,6 +11,16 @@ enum BulletMovement {
 }
 
 var movement:BulletMovement = BulletMovement.STRAIGHT
+
+func _ready():
+	body_entered.connect(_on_body_entered)
+
+func _on_body_entered(body: Node):
+	if body.has_method("damage"):
+		body.damage(strength)
+	# TODO: play explosion animation
+	# TODO: sfx
+	queue_free()
 
 func _process(_delta):
 	if timer.time_left / timer.wait_time < 0.25:
@@ -33,7 +44,7 @@ func _on_timer_timeout():
 
 ## angle in rads to fire
 ## lifetime in secs to live
-func fire(angle: float, lifetime:float=2.0, bmovement: BulletMovement=BulletMovement.STRAIGHT) -> void:
+func fire(angle: float, lifetime:float=3.0, bmovement: BulletMovement=BulletMovement.STRAIGHT) -> void:
 	movement = bmovement
 	rotation = angle
 	set_linear_velocity_from_rotation()

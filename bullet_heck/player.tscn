@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d0kqec6uqfxqr" path="res://assets/simple_space/ship_sidesC.png" id="1_86bgq"]
 [ext_resource type="Script" path="res://bullet_heck/player.gd" id="1_qa0n4"]
-[ext_resource type="PackedScene" uid="uid://c0qnivrsqv6" path="res://bullet_heck/bullet.tscn" id="2_wypbk"]
+[ext_resource type="PackedScene" uid="uid://c0qnivrsqv6" path="res://bullet_heck/bullet_player.tscn" id="2_5qlgs"]
 [ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="3_w0re1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1yxw"]
@@ -10,9 +10,11 @@ radius = 6.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
 motion_mode = 1
+wall_min_slide_angle = 3.14159
 script = ExtResource("1_qa0n4")
-weapon = ExtResource("2_wypbk")
+weapon = ExtResource("2_5qlgs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
@@ -23,3 +25,5 @@ texture = ExtResource("1_86bgq")
 shape = SubResource("CapsuleShape2D_c1yxw")
 
 [node name="BlastSfx" parent="." instance=ExtResource("3_w0re1")]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

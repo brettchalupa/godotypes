@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name Enemy extends RigidBody2D
 
 enum FirePattern {
 	SINGLE,
@@ -10,10 +10,13 @@ enum FirePattern {
 @export var fire_pattern:FirePattern = FirePattern.SINGLE
 @export var bullet_movement:Bullet.BulletMovement = Bullet.BulletMovement.STRAIGHT
 @export var fire_delay:float = 1
-@export var bullet_lifetime:float = 1
+@export var bullet_lifetime:float = 3
 @export var bullet_scene:PackedScene
 @onready var weapon_sfx := $WeaponSfx
 @onready var timer := $FireTimer
+@export var health := 3
+
+signal died
 
 func _ready() -> void:
 	timer.wait_time = fire_delay
@@ -52,3 +55,11 @@ func stop_firing():
 
 func resume_firing():
 	timer.paused = false
+
+func damage(amount):
+	health -= amount
+	if health <= 0:
+		# TODO: explode
+		# TODO: sfx
+		died.emit()
+		queue_free()

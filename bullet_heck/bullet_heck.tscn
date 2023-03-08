@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfisty8d4wd58"]
+[gd_scene load_steps=9 format=3 uid="uid://dfisty8d4wd58"]
 
 [ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
 [ext_resource type="PackedScene" uid="uid://6w3iko7xkh3y" path="res://bullet_heck/player.tscn" id="2_4rhco"]
 [ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://assets/simple_space/star_small.png" id="2_hgefi"]
-[ext_resource type="PackedScene" uid="uid://dioslgdbdpqp4" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
+[ext_resource type="PackedScene" uid="uid://b5hx824k1fyiy" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
 [ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://assets/simple_space/star_tiny.png" id="3_yydnk"]
 [ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://assets/simple_space/star_medium.png" id="4_cpk5y"]
+[ext_resource type="Script" path="res://bullet_heck/enemy_spawner.gd" id="7_wce5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bw6d"]
 size = Vector2(640, 720)
@@ -143,14 +144,23 @@ texture = ExtResource("4_cpk5y")
 position = Vector2(640, 640)
 field = NodePath("../Field/FieldRect")
 
-[node name="Enemy" parent="." instance=ExtResource("3_32knl")]
-position = Vector2(512, 128)
-rotation = 3.14159
-fire_pattern = 2
-bullet_lifetime = 3.0
+[node name="EnemySpawner" type="Node" parent="."]
+script = ExtResource("7_wce5c")
+enemy_scene = ExtResource("3_32knl")
 
-[node name="Enemy2" parent="." instance=ExtResource("3_32knl")]
-position = Vector2(768, 128)
-rotation = 3.14159
-fire_pattern = 2
-bullet_lifetime = 3.0
+[node name="Enemies" type="Node" parent="EnemySpawner"]
+
+[node name="EnemyAnchorLeft" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(512, 120)
+
+[node name="EnemyAnchorRight" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(768, 120)
+
+[node name="EnemyAnchorMiddle" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(640, 264)
+
+[node name="WaveDelay" type="Timer" parent="EnemySpawner"]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="_on_wave_delay_timeout"]

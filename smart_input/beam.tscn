@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://cpdfw2v6wm3ad"]
 
 [ext_resource type="Script" path="res://smart_input/beam.gd" id="1_ycbwi"]
 [ext_resource type="Texture2D" uid="uid://i4umlnqql86t" path="res://assets/simple_space/ship_B.png" id="2_0tcra"]

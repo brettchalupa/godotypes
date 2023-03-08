@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dioslgdbdpqp4"]
+[gd_scene load_steps=6 format=3 uid="uid://b5hx824k1fyiy"]
 
 [ext_resource type="Script" path="res://bullet_heck/enemy.gd" id="1_1o58s"]
-[ext_resource type="PackedScene" uid="uid://c0qnivrsqv6" path="res://bullet_heck/bullet.tscn" id="2_0ls8g"]
+[ext_resource type="PackedScene" uid="uid://21buur8wwwhj" path="res://bullet_heck/bullet_enemy.tscn" id="2_23cw4"]
 [ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="3_tmodn"]
 [ext_resource type="Texture2D" uid="uid://df7ds73d2jbu5" path="res://assets/simple_space/enemy_D.png" id="3_u7vho"]
 
@@ -9,10 +9,11 @@
 radius = 32.0156
 
 [node name="Enemy" type="RigidBody2D"]
+collision_layer = 4
 mass = 10.0
 gravity_scale = 2.66454e-15
 script = ExtResource("1_1o58s")
-bullet_scene = ExtResource("2_0ls8g")
+bullet_scene = ExtResource("2_23cw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

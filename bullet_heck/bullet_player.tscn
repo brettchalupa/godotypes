@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0qnivrsqv6"]
 
-[ext_resource type="Script" path="res://bullet_heck/bullet.gd" id="1_r63to"]
-[ext_resource type="Texture2D" uid="uid://i4umlnqql86t" path="res://assets/simple_space/ship_B.png" id="2_0tcra"]
+[ext_resource type="Script" path="res://bullet_heck/bullet.gd" id="1_js0cu"]
+[ext_resource type="Texture2D" uid="uid://i4umlnqql86t" path="res://assets/simple_space/ship_B.png" id="2_dub8e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wj6py"]
 radius = 8.0
@@ -11,12 +11,14 @@ height = 16.0
 collision_layer = 2
 collision_mask = 4
 gravity_scale = 2.66454e-15
-script = ExtResource("1_r63to")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_js0cu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -28.8)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_0tcra")
+texture = ExtResource("2_dub8e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -28.8)
