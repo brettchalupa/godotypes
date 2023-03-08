@@ -8,7 +8,12 @@ const ACCEL_VERT = 4200.0
 const ACCEL_HORIZ = 6400.0
 @export var field:ColorRect
 @export var weapon:PackedScene
+@export var max_health = 6
+@onready var health = max_health
 @onready var weapon_sfx := $BlastSfx
+var invincible := false
+signal damaged(new_health:int)
+signal died
 
 ## damage done to objects the player collides with
 var strength = 5
@@ -42,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	if field != null:
 		position = position.clamp(field.position, field.position + field.size)
 		
+		
 #	_handle_collisions()
 #
 #func _handle_collisions() -> void:
@@ -54,7 +60,15 @@ func _physics_process(delta: float) -> void:
 #		collider.queue_free()
 
 func damage(amount):
-	print_debug("damaged for " + str(amount))
+	if invincible:
+		return
+
+	health -= amount
+	damaged.emit(health)
+
+	if health <= 0:
+		died.emit()
+		queue_free()
 
 func _process(delta: float) -> void:
 	fire_delay_counter -= delta
@@ -70,10 +84,16 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept"):
 		fire_delay_counter = 0.0
 
-
-func _on_input_event(viewport, event, shape_idx):
-	print_debug("player on input event")
-	print_debug(viewport)
-	print_debug(event)
-	print_debug(shape_idx)
-	pass # Replace with function body.
+func _input(event: InputEvent) -> void:
+	if OS.is_debug_build() and event.is_action_pressed("bullet_heck_debug_invincible_toggle"):
+		toggle_invincibility()
+func toggle_invincibility():
+	invincible = !invincible
+	if invincible:
+		modulate.b = 0.6
+		modulate.r = 0.6
+		modulate.g = 0.8
+	else:
+		modulate.b = 1.0
+		modulate.r = 1.0
+		modulate.g = 1.0

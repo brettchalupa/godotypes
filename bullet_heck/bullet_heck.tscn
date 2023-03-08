@@ -163,4 +163,42 @@ position = Vector2(640, 264)
 one_shot = true
 autostart = true
 
+[node name="GameOver" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+offset_left = 464.0
+offset_top = 232.0
+offset_right = 816.0
+offset_bottom = 424.0
+color = Color(0.603922, 0.294118, 0.294118, 1)
+
+[node name="Label" type="Label" parent="GameOver"]
+offset_left = 544.0
+offset_top = 264.0
+offset_right = 735.0
+offset_bottom = 390.0
+theme_type_variation = &"HeaderLarge"
+text = "GAME OVER
+
+Fire to Restart"
+horizontal_alignment = 1
+
+[node name="GameOverTimer" type="Timer" parent="GameOver"]
+one_shot = true
+
+[node name="Debug" type="CanvasLayer" parent="." groups=["debug_ui"]]
+visible = false
+
+[node name="Instructions" type="Label" parent="Debug"]
+offset_left = 1064.0
+offset_top = 639.0
+offset_right = 1255.0
+offset_bottom = 695.0
+text = "DEBUG
+1 - Toggle Invincibility"
+horizontal_alignment = 2
+
+[connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="_on_wave_delay_timeout"]
+[connection signal="timeout" from="GameOver/GameOverTimer" to="." method="_on_game_over_timer_timeout"]

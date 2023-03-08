@@ -7,11 +7,15 @@ const SCENE_MAIN_MENU = "res://main_menu/main_menu.tscn"
 
 const SETTINGS_FILE = "user://settings.cfg"
 const CONFIG_SETTINGS_SECTION = "settings"
+var show_debug_ui = false
 
 func _ready():
 	print_debug("Global ready")
 	Engine.max_fps = 60
 	load_settings()
+
+	# hidden by default, can be toggled on in debug mode
+	get_tree().call_group("debug_ui", "hide")
 	
 func load_settings():
 	var config = ConfigFile.new()
@@ -57,3 +61,11 @@ func _on_main_menu_button_pressed():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+		
+	if OS.is_debug_build() and event.is_action_pressed("toggle_debug_ui"):
+		show_debug_ui = !show_debug_ui
+		print_debug("debug UI toggled: " + str(show_debug_ui))
+		if show_debug_ui:
+			get_tree().call_group("debug_ui", "show")
+		else:
+			get_tree().call_group("debug_ui", "hide")
