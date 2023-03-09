@@ -72,6 +72,9 @@ func damage(amount):
 	health_bar.value = health
 	damaged.emit(health)
 
+	if health == 1:
+		modulate = Color(0.7, 0.5, 0.5, 1)
+
 	if health <= 0:
 		died.emit()
 		queue_free()

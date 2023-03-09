@@ -75,6 +75,8 @@ func resume_firing():
 
 func damage(amount):
 	health -= amount
+	if health == 1:
+		modulate = Color(0.7, 0.5, 0.5, 1)
 	if health <= 0:
 		# TODO: explode
 		# TODO: sfx
