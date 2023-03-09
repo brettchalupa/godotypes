@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://dq7qkltluemq5"]
+
+[ext_resource type="Texture2D" uid="uid://byqcgta04aqyc" path="res://assets/hit.png" id="1_eges3"]
+[ext_resource type="Script" path="res://bullet_heck/hit_effect.gd" id="2_bpr5v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lviy"]
+atlas = ExtResource("1_eges3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2ery"]
+atlas = ExtResource("1_eges3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jk3k"]
+atlas = ExtResource("1_eges3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxc66"]
+atlas = ExtResource("1_eges3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srrq3"]
+atlas = ExtResource("1_eges3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ybx4"]
+atlas = ExtResource("1_eges3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ebxp"]
+atlas = ExtResource("1_eges3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywdrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lviy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2ery")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jk3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxc66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srrq3")
+}, {
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_7ybx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ebxp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="HitEffect" type="AnimatedSprite2D"]
+modulate = Color(0.886275, 0.580392, 0.580392, 1)
+texture_filter = 1
+position = Vector2(0, -37)
+sprite_frames = SubResource("SpriteFrames_ywdrr")
+script = ExtResource("2_bpr5v")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

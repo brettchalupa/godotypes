@@ -3,6 +3,7 @@ class_name Bullet extends RigidBody2D
 const SPEED := 600.0
 @onready var timer := $Timer
 var strength = 1
+var hit_effect = preload("res://bullet_heck/hit_effect.tscn")
 
 enum BulletMovement {
 	STRAIGHT,
@@ -18,8 +19,10 @@ func _ready():
 func _on_body_entered(body: Node):
 	if body.has_method("damage"):
 		body.damage(strength)
-	# TODO: play explosion animation
-	# TODO: sfx
+	var animation = hit_effect.instantiate()
+	animation.global_position = body.global_position
+	get_tree().get_root().add_child(animation)
+	animation.play("default")
 	queue_free()
 
 func _process(_delta):
