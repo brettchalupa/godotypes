@@ -109,6 +109,7 @@ enum Anchor {
 @export var current_wave = 1
 var enemies_in_wave = []
 signal wave_started(wave:int)
+signal won
 
 func start_wave():
 	emit_signal("wave_started", current_wave)
@@ -127,7 +128,8 @@ func start_wave():
 			enemy.connect("died", _enemy_died.bind(enemy))
 			$Enemies.add_child(enemy)
 	else:
-		print_debug("oh no! wave not defined: " + str(current_wave))
+		won.emit()
+		
 
 func start_next_wave():
 	current_wave += 1

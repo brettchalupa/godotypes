@@ -191,6 +191,30 @@ horizontal_alignment = 1
 [node name="GameOverTimer" type="Timer" parent="GameOver"]
 one_shot = true
 
+[node name="Won" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Won"]
+offset_left = 464.0
+offset_top = 232.0
+offset_right = 816.0
+offset_bottom = 424.0
+color = Color(0.176471, 0.462745, 0.360784, 1)
+
+[node name="Label" type="Label" parent="Won"]
+offset_left = 520.0
+offset_top = 264.0
+offset_right = 753.0
+offset_bottom = 390.0
+theme_type_variation = &"HeaderLarge"
+text = "YOU WON
+
+Fire to Play Again"
+horizontal_alignment = 1
+
+[node name="WonTimer" type="Timer" parent="Won"]
+one_shot = true
+
 [node name="Debug" type="CanvasLayer" parent="." groups=["debug_ui"]]
 visible = false
 
@@ -237,5 +261,7 @@ show_percentage = false
 [connection signal="damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="wave_started" from="EnemySpawner" to="." method="_on_enemy_spawner_wave_started"]
+[connection signal="won" from="EnemySpawner" to="." method="_on_won"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="_on_wave_delay_timeout"]
 [connection signal="timeout" from="GameOver/GameOverTimer" to="." method="_on_game_over_timer_timeout"]
+[connection signal="timeout" from="Won/WonTimer" to="." method="_on_won_timer_timeout"]

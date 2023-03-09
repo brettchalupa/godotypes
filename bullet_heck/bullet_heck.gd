@@ -16,6 +16,9 @@ func set_hp() -> void:
 func _on_player_died() -> void:
 	$GameOver/GameOverTimer.start()
 
+func _on_won() -> void:
+	$Won/WonTimer.start()
+
 func _input(event: InputEvent) -> void:
 	if game_over and event.is_action_pressed("ui_accept"):
 		get_tree().reload_current_scene.call_deferred()
@@ -23,6 +26,10 @@ func _input(event: InputEvent) -> void:
 func _on_game_over_timer_timeout() -> void:
 	game_over = true
 	$GameOver.show()
+
+func _on_won_timer_timeout() -> void:
+	game_over = true
+	$Won.show()
 
 func _on_player_damaged(_new_health) -> void:
 	set_hp()
