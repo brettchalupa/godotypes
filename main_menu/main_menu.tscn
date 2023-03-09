@@ -94,10 +94,11 @@ text = "Quit"
 
 [node name="PrototypesGrid" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 232.0
+offset_left = 476.0
 offset_top = 156.0
-offset_right = 1056.0
+offset_right = 805.0
 offset_bottom = 574.0
+columns = 3
 script = ExtResource("3_mjvto")
 
 [node name="SmartInputButton" type="Button" parent="PrototypesGrid"]
@@ -112,8 +113,13 @@ text = "Bullet Patterns"
 layout_mode = 2
 text = "Bullet Heck"
 
+[node name="DevilboyButton" type="Button" parent="PrototypesGrid"]
+layout_mode = 2
+text = "Devilboy"
+
 [connection signal="pressed" from="MenuOptions/Settings" to="MenuOptions" method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuOptions/Quit" to="MenuOptions" method="_on_quit_pressed"]
 [connection signal="pressed" from="PrototypesGrid/SmartInputButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["smart_input"]]
 [connection signal="pressed" from="PrototypesGrid/BulletPatternsButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["bullet_patterns"]]
 [connection signal="pressed" from="PrototypesGrid/BulletHeckButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["bullet_heck"]]
+[connection signal="pressed" from="PrototypesGrid/DevilboyButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["devilboy"]]
