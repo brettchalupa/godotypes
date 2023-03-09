@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djsb3yqt1rint"]
+
+[ext_resource type="AudioStream" path="res://assets/sfx/explosion.wav" id="1_v7fcv"]
+
+[node name="ExplosionSfx" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_v7fcv")

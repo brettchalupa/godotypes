@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfisty8d4wd58"]
+[gd_scene load_steps=18 format=3 uid="uid://dfisty8d4wd58"]
 
 [ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
 [ext_resource type="PackedScene" uid="uid://6w3iko7xkh3y" path="res://bullet_heck/player.tscn" id="2_4rhco"]
@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://assets/simple_space/star_medium.png" id="4_cpk5y"]
 [ext_resource type="Script" path="res://bullet_heck/enemy_spawner.gd" id="7_wce5c"]
 [ext_resource type="Texture2D" uid="uid://pqre16q76pgq" path="res://assets/mae.png" id="9_lfciu"]
+[ext_resource type="Texture2D" uid="uid://dc8dwxmovnbfy" path="res://assets/icons/icon-dpad.png" id="10_51vqu"]
+[ext_resource type="Texture2D" uid="uid://qfjmn0sulyq1" path="res://assets/icons/icon-key-w.png" id="10_y2716"]
+[ext_resource type="Texture2D" uid="uid://8070wu7b7xnb" path="res://assets/icons/icon-key-d.png" id="12_75ne6"]
+[ext_resource type="Texture2D" uid="uid://b3wed7kwnxnxm" path="res://assets/icons/icon-key-s.png" id="12_h7qbk"]
+[ext_resource type="Texture2D" uid="uid://cpr745xa54swb" path="res://assets/icons/icon-key-a.png" id="13_fe6yv"]
+[ext_resource type="Texture2D" uid="uid://dono45l65ja66" path="res://assets/icons/icon-key-j.png" id="15_teyyg"]
+[ext_resource type="Texture2D" uid="uid://cje1yjsmtugc6" path="res://assets/icons/icon-button-a.png" id="16_lstuy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bw6d"]
 size = Vector2(640, 720)
@@ -257,6 +264,102 @@ offset_top = 648.0
 offset_right = 1048.0
 offset_bottom = 659.0
 show_percentage = false
+
+[node name="Controls" type="Node2D" parent="UI"]
+position = Vector2(32, 624)
+
+[node name="Controls" type="Label" parent="UI/Controls"]
+offset_left = -8.0
+offset_top = -136.0
+offset_right = 90.0
+offset_bottom = -99.0
+theme_type_variation = &"HeaderMedium"
+text = "Controls"
+
+[node name="Move" type="Control" parent="UI/Controls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 38.0
+offset_right = 226.0
+offset_bottom = 58.0
+
+[node name="Label" type="Label" parent="UI/Controls/Move"]
+layout_mode = 2
+offset_left = -175.0
+offset_top = -110.0
+offset_right = -132.0
+offset_bottom = -84.0
+text = "Move"
+
+[node name="Icon-key-w" type="Sprite2D" parent="UI/Controls/Move" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(-79, -110)
+scale = Vector2(2, 2)
+texture = ExtResource("10_y2716")
+
+[node name="Icon-key-s" type="Sprite2D" parent="UI/Controls/Move" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(-79, -86)
+scale = Vector2(2, 2)
+texture = ExtResource("12_h7qbk")
+
+[node name="Icon-key-d" type="Sprite2D" parent="UI/Controls/Move" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(-55, -86)
+scale = Vector2(2, 2)
+texture = ExtResource("12_75ne6")
+
+[node name="Icon-key-a" type="Sprite2D" parent="UI/Controls/Move" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(-103, -86)
+scale = Vector2(2, 2)
+texture = ExtResource("13_fe6yv")
+
+[node name="Icon-dpad" type="Sprite2D" parent="UI/Controls/Move" groups=["control-joypad"]]
+visible = false
+texture_filter = 1
+position = Vector2(-79, -96)
+scale = Vector2(2, 2)
+texture = ExtResource("10_51vqu")
+
+[node name="Fire" type="Control" parent="UI/Controls"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 53.0
+offset_top = -35.0
+offset_right = 104.0
+offset_bottom = -8.0
+
+[node name="Label" type="Label" parent="UI/Controls/Fire"]
+layout_mode = 2
+offset_left = -53.0
+offset_top = 15.0
+offset_right = -2.0
+offset_bottom = 41.0
+text = "Fire"
+
+[node name="Icon-key-j" type="Sprite2D" parent="UI/Controls/Fire" groups=["control-keyboard"]]
+texture_filter = 1
+position = Vector2(43, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("15_teyyg")
+
+[node name="Icon-button-a" type="Sprite2D" parent="UI/Controls/Fire" groups=["control-joypad"]]
+visible = false
+texture_filter = 1
+position = Vector2(43, 27)
+scale = Vector2(2, 2)
+texture = ExtResource("16_lstuy")
+
+[node name="Label" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 456.0
+offset_right = 264.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 12
+text = "Shoot the enemies & avoid their blasts!"
+autowrap_mode = 2
 
 [connection signal="damaged" from="Player" to="." method="_on_player_damaged"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
