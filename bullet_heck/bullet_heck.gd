@@ -15,6 +15,7 @@ func _ready() -> void:
 	set_hp()
 	check_for_active_input()
 	Input.connect("joy_connection_changed", _on_joy_connection_changed)
+
 func display_input_aware_controls():
 	if active_input == ACTIVE_INPUTS.JOYPAD:
 		get_tree().call_group("control-keyboard", "hide")
@@ -39,6 +40,7 @@ func check_for_active_input():
 	
 	if last_input != active_input:
 		display_input_aware_controls()
+
 func set_hp() -> void:
 	$UI/PlayerHealthBar.max_value = player.max_health
 	$UI/PlayerHealthBar.value = player.health

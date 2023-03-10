@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1plgfm5h220k"]
+
+[ext_resource type="Script" path="res://devilboy/gem.gd" id="1_jqtpj"]
+[ext_resource type="Texture2D" uid="uid://cx2f0fdtssr4r" path="res://devilboy/assets/gem.png" id="1_tcdq4"]
+[ext_resource type="AudioStream" uid="uid://gp4jh13jnnbr" path="res://devilboy/assets/pickup.wav" id="3_ljjwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usro8"]
+size = Vector2(16, 16)
+
+[node name="Gem" type="Area2D"]
+script = ExtResource("1_jqtpj")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tcdq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_usro8")
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ljjwb")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
