@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://bni6srcekudlt"]
+
+[ext_resource type="Script" path="res://bunny_blaster/player.gd" id="1_31q8g"]
+[ext_resource type="Texture2D" uid="uid://dsvb2ly8vld58" path="res://bunny_blaster/assets/tilemap.png" id="1_lfau2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpa2x"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(34, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6tx6"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(0, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nnrp"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(0, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfn4s"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(17, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsums"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(17, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sregj"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(0, 68, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpaun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpa2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6tx6")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nnrp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfn4s")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsums")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sregj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lnv1s"]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_31q8g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_tpaun")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_lnv1s")

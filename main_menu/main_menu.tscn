@@ -117,9 +117,14 @@ text = "Bullet Heck"
 layout_mode = 2
 text = "Devilboy"
 
+[node name="BunnyBlasterButton" type="Button" parent="PrototypesGrid"]
+layout_mode = 2
+text = "Bunny Blaster"
+
 [connection signal="pressed" from="MenuOptions/Settings" to="MenuOptions" method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuOptions/Quit" to="MenuOptions" method="_on_quit_pressed"]
 [connection signal="pressed" from="PrototypesGrid/SmartInputButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["smart_input"]]
 [connection signal="pressed" from="PrototypesGrid/BulletPatternsButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["bullet_patterns"]]
 [connection signal="pressed" from="PrototypesGrid/BulletHeckButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["bullet_heck"]]
 [connection signal="pressed" from="PrototypesGrid/DevilboyButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["devilboy"]]
+[connection signal="pressed" from="PrototypesGrid/BunnyBlasterButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["bunny_blaster"]]
