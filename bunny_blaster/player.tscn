@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bni6srcekudlt"]
+[gd_scene load_steps=12 format=3 uid="uid://bni6srcekudlt"]
 
 [ext_resource type="Script" path="res://bunny_blaster/player.gd" id="1_31q8g"]
 [ext_resource type="Texture2D" uid="uid://dsvb2ly8vld58" path="res://bunny_blaster/assets/tilemap.png" id="1_lfau2"]
+[ext_resource type="PackedScene" uid="uid://bv3v71if825j1" path="res://bunny_blaster/bullet.tscn" id="2_upodl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpa2x"]
 atlas = ExtResource("1_lfau2")
@@ -19,13 +20,13 @@ region = Rect2(0, 68, 16, 16)
 atlas = ExtResource("1_lfau2")
 region = Rect2(17, 68, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nsums"]
-atlas = ExtResource("1_lfau2")
-region = Rect2(17, 68, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sregj"]
 atlas = ExtResource("1_lfau2")
 region = Rect2(0, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsums"]
+atlas = ExtResource("1_lfau2")
+region = Rect2(17, 68, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tpaun"]
 animations = [{
@@ -58,10 +59,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nsums")
+"texture": SubResource("AtlasTexture_sregj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sregj")
+"texture": SubResource("AtlasTexture_nsums")
 }],
 "loop": true,
 "name": &"run",
@@ -73,12 +74,15 @@ radius = 4.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_31q8g")
+bullet_scene = ExtResource("2_upodl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_tpaun")
-animation = &"run"
+animation = &"fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)

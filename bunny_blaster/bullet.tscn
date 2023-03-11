@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv3v71if825j1"]
+
+[ext_resource type="Script" path="res://bunny_blaster/bullet.gd" id="1_8ceqh"]
+[ext_resource type="Texture2D" uid="uid://dsvb2ly8vld58" path="res://bunny_blaster/assets/tilemap.png" id="1_jkn8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxogn"]
+size = Vector2(12, 6)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_8ceqh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jkn8i")
+region_enabled = true
+region_rect = Rect2(70, 73, 12, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vxogn")
+
+[node name="LifeTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
