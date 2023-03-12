@@ -24,59 +24,72 @@ exports_cfg.each_section do |section|
   }
 end
 
-exports.each do |k, v|
-  puts("Building export: #{k}")
-  if system("godot --headless --export-release \"#{k}\" #{v['export_path']}", exception: true)
-    puts("Success! Exported to: #{v['export_path']}")
 
-    # compress exports that aren't
-    if File.extname(v['export_path']) != ".zip"
-      if v['platform'].downcase == "web"
-        file = "exports/#{name_kebab}-web.zip"
-        system("zip #{file} -j #{v['export_path'].gsub('index.html', '*')}", exception: true)
-        v['export_path'] = file
-      else
-        file = v['export_path'].gsub(File.extname(v['export_path']), '.zip')
-        system("zip #{file} -j #{v['export_path']}", exception: true)
-        v['export_path'] = file
-      end
-    end
-  else
-    puts("Failed to build: #{$?}")
-  end
-end
+############ build
 
-export_cfg = IniFile.load("export.cfg")
-itch_cfg = export_cfg["itch"]
-if itch_cfg
-  if system("butler -V")
-    puts("itch.io butler installed, pushing builds")
+def build_exports(exports)
+  exports.each do |k, v|
+    puts("Building export: #{k}")
+    if system("godot --headless --export-release \"#{k}\" #{v['export_path']}", exception: true)
+      puts("Success! Exported to: #{v['export_path']}")
 
-    exports.each do |k, v|
-      file = v['export_path'].strip
-      user = itch_cfg['user']
-      game = itch_cfg['game']
-      channel = v['platform'].downcase.gsub(" ", "-").gsub("/", "-")
-
-      if channel == "web"
-        channel = "html"
-      end
-
-      butler_cmd = "butler push #{file} #{user}/#{game}:#{channel}"
-      if ver = export_cfg['metadata']['version']
-        butler_cmd += " --userversion #{ver}"
-      end
-      if File.exists?(file)
-        puts("Pushing export to itch.io: #{k}, #{file}")
-
-        if !system(butler_cmd, exception: true)
-          puts("Failed to push to itch.io: #{$?}")
+      # compress exports that aren't
+      if File.extname(v['export_path']) != ".zip"
+        if v['platform'].downcase == "web"
+          file = "exports/#{name_kebab}-web.zip"
+          system("zip #{file} -j #{v['export_path'].gsub('index.html', '*')}", exception: true)
+          v['export_path'] = file
+        else
+          file = v['export_path'].gsub(File.extname(v['export_path']), '.zip')
+          system("zip #{file} -j #{v['export_path']}", exception: true)
+          v['export_path'] = file
         end
       end
+    else
+      puts("Failed to build: #{$?}")
     end
-  else
-    abort("itch.io butler not installed")
   end
 end
+
+build_exports(exports) unless ARGV.include?("--no-build") || ARGV.include?("-nb")
+
+############ deploy
+
+def deploy(exports)
+  export_cfg = IniFile.load("export.cfg")
+  itch_cfg = export_cfg["itch"]
+  if itch_cfg
+    if system("butler -V")
+      puts("itch.io butler installed, pushing builds")
+
+      exports.each do |k, v|
+        file = v['export_path'].strip
+        user = itch_cfg['user']
+        game = itch_cfg['game']
+        channel = v['platform'].downcase.gsub(" ", "-").gsub("/", "-")
+
+        if channel == "web"
+          channel = "html"
+        end
+
+        butler_cmd = "butler push #{file} #{user}/#{game}:#{channel}"
+        if ver = export_cfg['metadata']['version']
+          butler_cmd += " --userversion #{ver}"
+        end
+        if File.exists?(file)
+          puts("Pushing export to itch.io: #{k}, #{file}")
+
+          if !system(butler_cmd, exception: true)
+            puts("Failed to push to itch.io: #{$?}")
+          end
+        end
+      end
+    else
+      abort("itch.io butler not installed")
+    end
+  end
+end
+
+deploy(exports) unless ARGV.include?("--no-deploy") || ARGV.include?("-nd")
 
 puts("Export builds complete!")
