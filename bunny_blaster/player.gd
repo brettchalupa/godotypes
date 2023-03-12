@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
+const MAX_X_SPEED = 150.0
+const X_ACCEL = 600
 const JUMP_VELOCITY = -300.0
-
+const FRICTION = 800
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var blast_sfx = $BlastSfx
@@ -24,14 +25,15 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir := Input.get_axis("ui_left", "ui_right")
 	if input_dir:
-		velocity.x = input_dir * SPEED	
+		velocity.x += input_dir * X_ACCEL * delta
+		velocity.x = clamp(velocity.x, -MAX_X_SPEED, MAX_X_SPEED)
 		sprite.flip_h = input_dir < 0
 		if input_dir > 0:
 			direction = Direction.RIGHT
 		else:
 			direction = Direction.LEFT
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 
 	var just_fired = false
 	if Input.is_action_just_pressed("bunny_fire"):
@@ -46,7 +48,6 @@ func _physics_process(delta: float) -> void:
 			bullet.position.x += 8
 		get_tree().get_root().add_child(bullet)
 		bullet.fire(direction)
-
 
 	if is_on_floor():
 		if velocity.x != 0:

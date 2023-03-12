@@ -36,7 +36,7 @@ script = ExtResource("1_pbcv0")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_wmaau")
 animation = &"walk"
-frame_progress = 0.522209
+frame_progress = 0.110806
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
