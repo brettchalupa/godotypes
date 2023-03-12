@@ -1,0 +1,20 @@
+!fadeOut
+!bg modern-street.jpg
+!fadeIn
+We find ourselves witnessing a conversation between two friends.
+...
+Wolfie: Hello, what are you doing here?
+Wolfie: Oh, I see. You want to play a game. Well, let's play a game.
+Wolfie: Guess what number I'm thinking...
+Bunny: Let me think. Just give me a moment.
+Bunny stares at the ground.
+...
+Bunny: Okay! 6!
+!flash
+!shake
+Wolfie: Correct-o-mundo!
+!fadeOut
+!bg room-night.jpg
+!fadeIn
+End scene!
+*The audience claps.*
