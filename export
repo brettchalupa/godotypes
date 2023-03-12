@@ -27,7 +27,7 @@ end
 
 ############ build
 
-def build_exports(exports)
+def build_exports(exports, name_kebab)
   exports.each do |k, v|
     puts("Building export: #{k}")
     if system("godot --headless --export-release \"#{k}\" #{v['export_path']}", exception: true)
@@ -51,7 +51,7 @@ def build_exports(exports)
   end
 end
 
-build_exports(exports) unless ARGV.include?("--no-build") || ARGV.include?("-nb")
+build_exports(exports, name_kebab) unless ARGV.include?("--no-build") || ARGV.include?("-nb")
 
 ############ deploy
 
