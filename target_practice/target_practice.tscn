@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpmc0nqnfoa5i"]
+
+[ext_resource type="Script" path="res://target_practice/player.gd" id="1_a83fw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b1f75"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_htv4w"]
+size = Vector3(11.72, 1, 20.4202)
+
+[node name="TargetPractice" type="Node3D"]
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_a83fw")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.48722)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_b1f75")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53024, 0)
+shape = SubResource("BoxShape3D_htv4w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4144, 1.90898, 6.05007)
