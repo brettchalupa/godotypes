@@ -6,7 +6,7 @@ const JUMP_VELOCITY = -300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-var blast_sfx = preload("res://assets/sfx/blast_sfx.tscn")
+@onready var blast_sfx = $BlastSfx
 @onready var sprite = $AnimatedSprite2D
 enum Direction {
 	LEFT,
@@ -35,18 +35,18 @@ func _physics_process(delta: float) -> void:
 
 	var just_fired = false
 	if Input.is_action_just_pressed("bunny_fire"):
+		Sound.play_sfx(blast_sfx)
 		just_fired = true
 		var bullet = bullet_scene.instantiate()
 		bullet.global_position = global_position
 		bullet.position.y -= 6
-		print_debug(bullet.position.y)
 		if direction == Direction.LEFT:
 			bullet.position.x -= 8
 		else:
 			bullet.position.x += 8
 		get_tree().get_root().add_child(bullet)
 		bullet.fire(direction)
-		Sound.play_sfx(blast_sfx.instantiate())
+
 
 	if is_on_floor():
 		if velocity.x != 0:

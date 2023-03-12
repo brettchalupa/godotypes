@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bni6srcekudlt"]
+[gd_scene load_steps=13 format=3 uid="uid://bni6srcekudlt"]
 
 [ext_resource type="Script" path="res://bunny_blaster/player.gd" id="1_31q8g"]
 [ext_resource type="Texture2D" uid="uid://dsvb2ly8vld58" path="res://bunny_blaster/assets/tilemap.png" id="1_lfau2"]
 [ext_resource type="PackedScene" uid="uid://bv3v71if825j1" path="res://bunny_blaster/bullet.tscn" id="2_upodl"]
+[ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="4_5668h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpa2x"]
 atlas = ExtResource("1_lfau2")
@@ -87,3 +88,6 @@ animation = &"fire"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_lnv1s")
+
+[node name="BlastSfx" parent="." instance=ExtResource("4_5668h")]
+pitch_scale = 0.8

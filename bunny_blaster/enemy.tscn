@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://sib1p0d86vud"]
+
+[ext_resource type="Script" path="res://bunny_blaster/enemy.gd" id="1_pbcv0"]
+[ext_resource type="Texture2D" uid="uid://dsvb2ly8vld58" path="res://bunny_blaster/assets/tilemap.png" id="1_pdk1h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1hpy"]
+atlas = ExtResource("1_pdk1h")
+region = Rect2(85, 85, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w502x"]
+atlas = ExtResource("1_pdk1h")
+region = Rect2(102, 85, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wmaau"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1hpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w502x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hf410"]
+radius = 3.0
+height = 10.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_pbcv0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_wmaau")
+animation = &"walk"
+frame_progress = 0.522209
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hf410")
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="TurnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="LedgeCast" type="RayCast2D" parent="."]
+position = Vector2(5, 0)
+target_position = Vector2(2.08165e-12, 4)
+collide_with_areas = true
+
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]
