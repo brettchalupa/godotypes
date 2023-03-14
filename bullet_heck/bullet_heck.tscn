@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfisty8d4wd58"]
+[gd_scene load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://bullet_heck/bullet_heck.gd" id="1_xb8pk"]
-[ext_resource type="PackedScene" uid="uid://6w3iko7xkh3y" path="res://bullet_heck/player.tscn" id="2_4rhco"]
+[ext_resource type="PackedScene" path="res://bullet_heck/player.tscn" id="2_4rhco"]
 [ext_resource type="Script" path="res://bullet_heck/stars.gd" id="2_bko3k"]
 [ext_resource type="Texture2D" uid="uid://y5pb6dm5kxdd" path="res://assets/simple_space/star_small.png" id="2_hgefi"]
-[ext_resource type="PackedScene" uid="uid://b5hx824k1fyiy" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
+[ext_resource type="PackedScene" path="res://bullet_heck/enemy.tscn" id="3_32knl"]
 [ext_resource type="Texture2D" uid="uid://bk3gpnfbrhjjv" path="res://assets/simple_space/star_tiny.png" id="3_yydnk"]
 [ext_resource type="Texture2D" uid="uid://brl4vls3iat2u" path="res://assets/simple_space/star_medium.png" id="4_cpk5y"]
 [ext_resource type="Script" path="res://bullet_heck/enemy_spawner.gd" id="7_wce5c"]

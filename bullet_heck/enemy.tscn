@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5hx824k1fyiy"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://bullet_heck/enemy.gd" id="1_1o58s"]
-[ext_resource type="PackedScene" uid="uid://21buur8wwwhj" path="res://bullet_heck/bullet_enemy.tscn" id="2_23cw4"]
+[ext_resource type="PackedScene" path="res://bullet_heck/bullet_enemy.tscn" id="2_23cw4"]
 [ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="3_tmodn"]
 [ext_resource type="Texture2D" uid="uid://df7ds73d2jbu5" path="res://assets/simple_space/enemy_D.png" id="3_u7vho"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbfbtd1ity4hd"]
 
 [ext_resource type="Script" path="res://visual_novel/visual_novel.gd" id="1_miuje"]
-[ext_resource type="Texture2D" uid="uid://djrij2wma0n2i" path="res://visual_novel/assets/DragonRuby Zine 1 Cover - Color.png" id="2_qeipr"]
+[ext_resource type="Texture2D" uid="uid://de2r0vjw1h1iq" path="res://visual_novel/assets/red.png" id="2_cbivf"]
 
 [node name="VisualNovel" type="Node2D"]
 script = ExtResource("1_miuje")
@@ -28,12 +28,11 @@ text = "Scripted dialogue with characters"
 autowrap_mode = 2
 
 [node name="Credit" type="Label" parent="."]
-visible = false
 offset_left = 24.0
 offset_top = 670.0
 offset_right = 328.0
 offset_bottom = 700.0
-text = "Assets by Kenney (CC0)"
+text = "Portraits by ShatteredReality (CC0)"
 autowrap_mode = 2
 
 [node name="MainMenuButton" type="Button" parent="."]
@@ -44,36 +43,36 @@ offset_bottom = 55.0
 text = "Back to Main Menu"
 
 [node name="Textbox" type="Node2D" parent="."]
-position = Vector2(680, 568)
+position = Vector2(680, 608)
 
-[node name="DragonRubyZine1Cover-Color" type="Sprite2D" parent="Textbox"]
-texture_filter = 2
-position = Vector2(-192, -176)
-scale = Vector2(0.152745, 0.152745)
-texture = ExtResource("2_qeipr")
+[node name="SpeakerSprite" type="Sprite2D" parent="Textbox"]
+texture_filter = 1
+position = Vector2(167, -172)
+scale = Vector2(8, 8)
+texture = ExtResource("2_cbivf")
 
 [node name="SpeakerBG" type="ColorRect" parent="Textbox"]
 offset_left = -312.0
 offset_top = -88.0
 offset_right = -144.0
 offset_bottom = -56.0
-color = Color(0.984314, 0.909804, 0.866667, 1)
+color = Color(0.156863, 0.317647, 0.517647, 1)
 
 [node name="Speaker" type="Label" parent="Textbox"]
-modulate = Color(0.164706, 0.164706, 0.164706, 1)
+modulate = Color(0.964706, 0.964706, 0.964706, 1)
 offset_left = -300.0
 offset_top = -86.0
 offset_right = -156.0
 offset_bottom = -55.0
 theme_type_variation = &"HeaderSmall"
-text = "Dagron"
+text = "Red"
 
 [node name="BG" type="ColorRect" parent="Textbox"]
 offset_left = -312.0
 offset_top = -56.0
 offset_right = 296.0
 offset_bottom = 40.0
-color = Color(0.901961, 0.929412, 0.972549, 1)
+color = Color(0.529412, 0.65098, 0.843137, 1)
 
 [node name="Text" type="Label" parent="Textbox"]
 modulate = Color(0.164706, 0.164706, 0.164706, 1)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://6w3iko7xkh3y"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Texture2D" uid="uid://d0kqec6uqfxqr" path="res://assets/simple_space/ship_sidesC.png" id="1_86bgq"]
 [ext_resource type="Script" path="res://bullet_heck/player.gd" id="1_qa0n4"]
-[ext_resource type="PackedScene" uid="uid://c0qnivrsqv6" path="res://bullet_heck/bullet_player.tscn" id="2_5qlgs"]
+[ext_resource type="PackedScene" path="res://bullet_heck/bullet_player.tscn" id="2_5qlgs"]
 [ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="3_w0re1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c1yxw"]

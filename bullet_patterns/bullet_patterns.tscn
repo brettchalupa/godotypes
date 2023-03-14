@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnjjmfu7c43ja"]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://bullet_patterns/bullet_patterns.gd" id="1_ljx16"]
-[ext_resource type="PackedScene" uid="uid://b5hx824k1fyiy" path="res://bullet_heck/enemy.tscn" id="2_o3klj"]
+[ext_resource type="PackedScene" path="res://bullet_heck/enemy.tscn" id="2_o3klj"]
 
 [node name="BulletPatterns" type="Node2D"]
 script = ExtResource("1_ljx16")

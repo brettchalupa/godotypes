@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djrij2wma0n2i"
-path="res://.godot/imported/DragonRuby Zine 1 Cover - Color.png-353a65ee12277b000888a5c0c4b7316a.ctex"
+uid="uid://de2r0vjw1h1iq"
+path="res://.godot/imported/red.png-b69d70be415a93e8776ed8f8b10ca614.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://visual_novel/assets/DragonRuby Zine 1 Cover - Color.png"
-dest_files=["res://.godot/imported/DragonRuby Zine 1 Cover - Color.png-353a65ee12277b000888a5c0c4b7316a.ctex"]
+source_file="res://visual_novel/assets/red.png"
+dest_files=["res://.godot/imported/red.png-b69d70be415a93e8776ed8f8b10ca614.ctex"]
 
 [params]
 
