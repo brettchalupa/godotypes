@@ -1,8 +1,12 @@
+!bg landscape
 We find ourselves witnessing a rare meeting...
 Red: Hi, there!!
 Red: What, you don't know me?
 Blue: ...
 Red: We met last week!
 Blue: Oh yeah, I remember you!
+Red: Look, the background can be cleared.
+!clear_bg
+Blue: Whoa, neat!
 Red: Oh, this is what we call a long line mate! Let's hope it wraps or something similar.
 Blue: You think you're so special with your long line?! Well here's an even longer line! Yeah, that's right. It breaks outside of the boundaries of space and time.

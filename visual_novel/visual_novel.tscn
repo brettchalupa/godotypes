@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbfbtd1ity4hd"]
+[gd_scene load_steps=4 format=3 uid="uid://dbfbtd1ity4hd"]
 
 [ext_resource type="Script" path="res://visual_novel/visual_novel.gd" id="1_miuje"]
+[ext_resource type="Texture2D" uid="uid://bayxxhd7s2m1p" path="res://visual_novel/assets/bg-landscape.png" id="2_0wks4"]
 [ext_resource type="Texture2D" uid="uid://de2r0vjw1h1iq" path="res://visual_novel/assets/red.png" id="2_cbivf"]
 
 [node name="VisualNovel" type="Node2D"]
@@ -10,6 +11,12 @@ script = ExtResource("1_miuje")
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.596078, 0.282353, 0.337255, 1)
+
+[node name="BGSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+scale = Vector2(8, 8)
+texture = ExtResource("2_0wks4")
 
 [node name="Title" type="Label" parent="."]
 offset_left = 24.0
