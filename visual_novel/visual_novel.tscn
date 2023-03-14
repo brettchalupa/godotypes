@@ -90,3 +90,12 @@ offset_bottom = 27.0
 theme_type_variation = &"HeaderMedium"
 text = "Hello, what are you doing here?"
 autowrap_mode = 3
+
+[node name="Flash" type="ColorRect" parent="."]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true

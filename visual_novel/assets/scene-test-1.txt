@@ -1,11 +1,17 @@
-!bg landscape
 We find ourselves witnessing a rare meeting...
 Red: Hi, there!!
 Red: What, you don't know me?
 Blue: ...
 Red: We met last week!
 Blue: Oh yeah, I remember you!
+Red: Can I show you a magic trick?
+Blue: ...
+!flash
+!bg landscape
+Red: Presto! A background!
+Red: And now...
 Red: Look, the background can be cleared.
+!shake
 !clear_bg
 Blue: Whoa, neat!
 Red: Oh, this is what we call a long line mate! Let's hope it wraps or something similar.

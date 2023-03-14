@@ -3,6 +3,7 @@ extends Node2D
 var scene_lines = []
 var scene_index := 0
 var current_scene
+var waiting_for_command_to_finish = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +23,7 @@ func load_scene(res:String):
 			scene_lines.append(line.strip_edges())
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and !waiting_for_command_to_finish:
 		next_line()
 		
 	if event.is_action_pressed("visual_novel_debug_reload_script"):
@@ -54,12 +55,28 @@ func run_command(line:String):
 		"!bg":
 			$BGSprite.texture = load("res://visual_novel/assets/bg-%s.png" % args[0])
 			$BGSprite.show()
+			next_line()
 		"!clear_bg":
 			$BGSprite.texture = null
 			$BGSprite.hide()
+			next_line()
+		"!flash":
+			start_flash()
+		"!shake":
+			print_debug("TODO: implement shake")
 		_:
 			push_warning("command not supported: %s" % command)
-	
+			next_line()
+
+func start_flash():
+	waiting_for_command_to_finish = true
+	$Flash.show()
+	$FlashTimer.connect("timeout", _end_flash)
+	$FlashTimer.start()
+
+func _end_flash():
+	waiting_for_command_to_finish = false
+	$Flash.hide()
 	next_line()
 
 func render_dialogue(line:String):
