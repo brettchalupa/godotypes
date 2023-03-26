@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://3o1c75cwwq7l"]
+
+[ext_resource type="Script" path="res://target_practice/player.gd" id="1_2vsnu"]
+[ext_resource type="PackedScene" path="res://target_practice/bullet.tscn" id="2_kgnpn"]
+[ext_resource type="PackedScene" uid="uid://cx7076jfbs50r" path="res://target_practice/Spaceship 1.glb" id="3_6cva0"]
+[ext_resource type="PackedScene" uid="uid://cdfiflsa87lrn" path="res://assets/sfx/blast_sfx.tscn" id="4_ecavp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_73sni"]
+height = 4.57079
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_2vsnu")
+bullet_scene = ExtResource("2_kgnpn")
+
+[node name="Spaceship 1" parent="." instance=ExtResource("3_6cva0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 5.25661e-22, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_73sni")
+
+[node name="BlastSfx" parent="." instance=ExtResource("4_ecavp")]

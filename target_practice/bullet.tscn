@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://83ldn21hd21y"]
+
+[ext_resource type="Script" path="res://target_practice/bullet.gd" id="1_21occ"]
+[ext_resource type="PackedScene" uid="uid://1l0jbkynkad4" path="res://target_practice/foamBulletB-low.glb" id="2_544gt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dwgsm"]
+radius = 0.232849
+height = 1.3512
+
+[node name="Bullet" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.01
+gravity_scale = 2.66454e-15
+script = ExtResource("1_21occ")
+
+[node name="foamBulletB-low" parent="." instance=ExtResource("2_544gt")]
+transform = Transform3D(4.51894e-14, 8.74228e-07, 20, 20, -8.74228e-07, -6.97574e-15, 8.74228e-07, 20, -8.74228e-07, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.25947e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.48787e-16, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_dwgsm")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
