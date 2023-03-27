@@ -29,14 +29,6 @@ offset_bottom = 120.0
 text = "3D over-the-shoulder space shooter"
 autowrap_mode = 2
 
-[node name="Credit" type="Label" parent="UI"]
-offset_left = 24.0
-offset_top = 670.0
-offset_right = 328.0
-offset_bottom = 700.0
-text = "Models by Brett"
-autowrap_mode = 2
-
 [node name="MainMenuButton" type="Button" parent="UI"]
 offset_left = 1096.0
 offset_top = 24.0
