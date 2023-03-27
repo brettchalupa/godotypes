@@ -1,15 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://jac6kdmhox0x"]
+[gd_scene load_steps=5 format=3 uid="uid://jac6kdmhox0x"]
 
-[ext_resource type="PackedScene" uid="uid://3o1c75cwwq7l" path="res://target_practice/player.tscn" id="1_dj30u"]
-[ext_resource type="PackedScene" uid="uid://dp1xlpa1ng76g" path="res://target_practice/target.tscn" id="2_ldjmd"]
+[ext_resource type="PackedScene" path="res://target_practice/player.tscn" id="1_dj30u"]
+[ext_resource type="PackedScene" path="res://target_practice/target.tscn" id="2_ldjmd"]
+
+[sub_resource type="Environment" id="Environment_hvtvj"]
+background_mode = 1
+background_color = Color(0.317647, 0.466667, 0.333333, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ap2o7"]
 
 [node name="TargetPractice" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_dj30u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.856873, 0, -0.866333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.3919)
 
 [node name="Target" parent="." instance=ExtResource("2_ldjmd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.381958, 0, 17.1793)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -7.46148, 47.0246)
+
+[node name="Target2" parent="." instance=ExtResource("2_ldjmd")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 9.88937, 47.0246)
+
+[node name="Target3" parent="." instance=ExtResource("2_ldjmd")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.40408, 20.2919)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -345.71, 2.08165e-12, 6.2936)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -60, 0, 4.934)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hvtvj")
+camera_attributes = SubResource("CameraAttributesPractical_ap2o7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.712639, 0, 0.701531, 0, 1, 0, -0.701531, 0, -0.712639, -137.405, 34.8177, -100.073)
