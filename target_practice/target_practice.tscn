@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://jac6kdmhox0x"]
+[gd_scene load_steps=6 format=3 uid="uid://jac6kdmhox0x"]
 
+[ext_resource type="Script" path="res://target_practice/target_practice.gd" id="1_7j7p3"]
 [ext_resource type="PackedScene" path="res://target_practice/player.tscn" id="1_dj30u"]
 [ext_resource type="PackedScene" path="res://target_practice/target.tscn" id="2_ldjmd"]
 
@@ -10,18 +11,19 @@ background_color = Color(0.317647, 0.466667, 0.333333, 1)
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ap2o7"]
 
 [node name="TargetPractice" type="Node3D"]
+script = ExtResource("1_7j7p3")
 
 [node name="Player" parent="." instance=ExtResource("1_dj30u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.3919)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29.0935)
 
 [node name="Target" parent="." instance=ExtResource("2_ldjmd")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -7.46148, 47.0246)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -15.7037, 55.7896)
 
 [node name="Target2" parent="." instance=ExtResource("2_ldjmd")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 9.88937, 47.0246)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 16.9658, 55.7896)
 
 [node name="Target3" parent="." instance=ExtResource("2_ldjmd")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.40408, 20.2919)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.40408, 29.057)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -60, 0, 4.934)
@@ -32,3 +34,34 @@ camera_attributes = SubResource("CameraAttributesPractical_ap2o7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.712639, 0, 0.701531, 0, 1, 0, -0.701531, 0, -0.712639, -137.405, 34.8177, -100.073)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 185.0
+offset_bottom = 58.0
+theme_type_variation = &"HeaderLarge"
+text = "Target Practice"
+
+[node name="Description" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 410.0
+offset_bottom = 120.0
+text = "3D objects with 2D movement"
+autowrap_mode = 2
+
+[node name="Credit" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 670.0
+offset_right = 328.0
+offset_bottom = 700.0
+text = "Models by Brett & Kenney (CC0)"
+autowrap_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 1096.0
+offset_top = 24.0
+offset_right = 1253.0
+offset_bottom = 55.0
+text = "Back to Main Menu"
