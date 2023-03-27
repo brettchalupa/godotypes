@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://i2ss01apoxp"]
+[gd_scene load_steps=5 format=3 uid="uid://i2ss01apoxp"]
 
 [ext_resource type="Script" path="res://stardog/stardog.gd" id="1_36wgo"]
+[ext_resource type="PackedScene" uid="uid://bir5l6qpu4mea" path="res://stardog/player.tscn" id="2_82tcs"]
+[ext_resource type="PackedScene" uid="uid://c0l60hi25uoa" path="res://stardog/asteroid.tscn" id="3_j22vc"]
+
+[sub_resource type="Environment" id="Environment_6i0wu"]
+background_mode = 1
+background_color = Color(0.262745, 0.54902, 0.576471, 1)
 
 [node name="Stardog" type="Node3D"]
 script = ExtResource("1_36wgo")
 
-[node name="Title" type="Label" parent="."]
+[node name="UI" type="Node" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
 offset_left = 24.0
 offset_top = 16.0
 offset_right = 185.0
@@ -13,7 +21,7 @@ offset_bottom = 58.0
 theme_type_variation = &"HeaderLarge"
 text = "Stardog"
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="UI"]
 offset_left = 24.0
 offset_top = 58.0
 offset_right = 410.0
@@ -21,7 +29,7 @@ offset_bottom = 120.0
 text = "3D over-the-shoulder space shooter"
 autowrap_mode = 2
 
-[node name="Credit" type="Label" parent="."]
+[node name="Credit" type="Label" parent="UI"]
 offset_left = 24.0
 offset_top = 670.0
 offset_right = 328.0
@@ -29,9 +37,70 @@ offset_bottom = 700.0
 text = "Models by Brett"
 autowrap_mode = 2
 
-[node name="MainMenuButton" type="Button" parent="."]
+[node name="MainMenuButton" type="Button" parent="UI"]
 offset_left = 1096.0
 offset_top = 24.0
 offset_right = 1253.0
 offset_bottom = 55.0
 text = "Back to Main Menu"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6i0wu")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.85212, 0.523347, 0, -0.523347, -0.85212, 35.999, 52.7197, -128.19)
+light_energy = 2.0
+
+[node name="Player" parent="." instance=ExtResource("2_82tcs")]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(-1, 7.72725e-14, -8.74228e-08, -2.57437e-08, 0.955659, 0.294475, 8.35464e-08, 0.294475, -0.955659, 0, 8.91516, -14.4997)
+far = 200.0
+
+[node name="Asteroid" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2957, -24.1174, 83.4561)
+
+[node name="Asteroid4" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4531, 6.81165, 83.444)
+
+[node name="Asteroid5" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.8669, 15.2141, 116.968)
+
+[node name="Asteroid2" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9327, 0, 46.6748)
+
+[node name="Asteroid6" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66207, 0, 121.587)
+
+[node name="Asteroid7" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8977, -18.151, 164.306)
+
+[node name="Asteroid8" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31187, 0, 164.306)
+
+[node name="Asteroid9" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1812, 31.0481, 207.058)
+
+[node name="Asteroid10" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.5612, 64.5094, 224.415)
+
+[node name="Asteroid11" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9048, 64.5094, 224.415)
+
+[node name="Asteroid12" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.4508, 91.3726, 240.217)
+
+[node name="Asteroid13" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.408, 91.3726, 240.217)
+
+[node name="Asteroid14" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5259, 42.0997, 265.676)
+
+[node name="Asteroid15" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5259, 84.1969, 265.676)
+
+[node name="Asteroid16" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.7191, 84.1969, 298.201)
+
+[node name="Asteroid3" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.168, 0, 67.2982)
