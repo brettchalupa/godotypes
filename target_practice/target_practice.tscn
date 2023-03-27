@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://jac6kdmhox0x"]
 
 [ext_resource type="Script" path="res://target_practice/target_practice.gd" id="1_7j7p3"]
-[ext_resource type="PackedScene" path="res://target_practice/player.tscn" id="1_dj30u"]
-[ext_resource type="PackedScene" path="res://target_practice/target.tscn" id="2_ldjmd"]
+[ext_resource type="PackedScene" uid="uid://3o1c75cwwq7l" path="res://target_practice/player.tscn" id="1_dj30u"]
+[ext_resource type="PackedScene" uid="uid://dp1xlpa1ng76g" path="res://target_practice/target.tscn" id="2_ldjmd"]
 
 [sub_resource type="Environment" id="Environment_hvtvj"]
 background_mode = 1
