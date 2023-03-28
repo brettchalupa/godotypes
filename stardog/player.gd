@@ -4,7 +4,7 @@ extends CharacterBody3D
 const xy_accel = 400.0
 const ryp_accel = 100.0 # roll yaw pitch
 const xy_speed = 20.0
-const ryp_deg = 30.0
+const ryp_deg = 20.0
 var forward_speed = 20.0
 var forward_paused = false
 
