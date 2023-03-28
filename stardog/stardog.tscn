@@ -7,7 +7,7 @@
 
 [sub_resource type="Environment" id="Environment_6i0wu"]
 background_mode = 1
-background_color = Color(0.262745, 0.54902, 0.576471, 1)
+background_color = Color(0.184314, 0.411765, 0.431373, 1)
 
 [node name="Stardog" type="Node3D"]
 script = ExtResource("1_36wgo")
