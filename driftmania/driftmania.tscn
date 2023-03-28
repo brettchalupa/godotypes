@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://im3vy53matn0"]
+
+[ext_resource type="PackedScene" uid="uid://dkpkcilabskfp" path="res://driftmania/sedanSports.glb" id="1_crsy6"]
+[ext_resource type="Script" path="res://driftmania/vehicle.gd" id="1_f3svl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbbkp"]
+albedo_color = Color(0.290196, 0.407843, 0.435294, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2txcu"]
+material = SubResource("StandardMaterial3D_rbbkp")
+size = Vector2(40, 22)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_grucj"]
+size = Vector3(90, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5weg"]
+size = Vector3(1.42176, 0.991779, 2.36815)
+
+[sub_resource type="Environment" id="Environment_xwlti"]
+background_mode = 1
+background_color = Color(0.0901961, 0.486275, 1, 1)
+
+[node name="Driftmania" type="Node3D"]
+
+[node name="Track" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Track"]
+transform = Transform3D(1.99247, 0, 0, 0, 1, 0, 0, 0, 1.96044, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2txcu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44369, 0)
+shape = SubResource("BoxShape3D_grucj")
+
+[node name="VehicleBody3D" type="VehicleBody3D" parent="."]
+engine_force = 10.0
+script = ExtResource("1_f3svl")
+
+[node name="sedanSports" parent="VehicleBody3D" instance=ExtResource("1_crsy6")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596916, 0)
+shape = SubResource("BoxShape3D_h5weg")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(-8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, 0.587677, 0.429747, -0.527464)
+engine_force = 10.0
+use_as_traction = true
+use_as_steering = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.603612, 0.797279, 0, -0.797279, 0.603612, 0, 26.7177, 27.1051)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xwlti")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0517956, 0.998658, 0, -0.998658, -0.0517956, 0, 100, 60.8577)
