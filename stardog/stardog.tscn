@@ -43,11 +43,11 @@ environment = SubResource("Environment_6i0wu")
 transform = Transform3D(1, 0, 0, 0, -0.85212, 0.523347, 0, -0.523347, -0.85212, 35.999, 52.7197, -128.19)
 light_energy = 2.0
 
-[node name="Player" parent="." instance=ExtResource("2_82tcs")]
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(-1, 7.72725e-14, -8.74228e-08, -2.57437e-08, 0.955659, 0.294475, 8.35464e-08, 0.294475, -0.955659, 0, 8.91516, -14.4997)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 1.25234e-13, -8.74228e-08, -2.57437e-08, 0.955659, 0.294475, 8.35464e-08, 0.294475, -0.955659, 0, 8.91516, -14.4997)
 far = 200.0
+
+[node name="Player" parent="." instance=ExtResource("2_82tcs")]
 
 [node name="Asteroid" parent="." instance=ExtResource("3_j22vc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2957, -24.1174, 83.4561)
