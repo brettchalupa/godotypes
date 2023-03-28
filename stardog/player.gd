@@ -24,5 +24,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("stardog_debug_toggle_player_z"):
+	if OS.is_debug_build() && event.is_action_pressed("stardog_debug_toggle_player_z"):
 		forward_paused = !forward_paused
