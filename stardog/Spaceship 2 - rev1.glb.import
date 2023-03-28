@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://buvuucheylcdv"
-path="res://.godot/imported/Spaceship 2.glb-c5b13fd4097385733b382e82ac4da205.scn"
+uid="uid://cu321sdwf0xeu"
+path="res://.godot/imported/Spaceship 2 - rev1.glb-489239bb6d42217615555f0d8122c0aa.scn"
 
 [deps]
 
-source_file="res://stardog/Spaceship 2.glb"
-dest_files=["res://.godot/imported/Spaceship 2.glb-c5b13fd4097385733b382e82ac4da205.scn"]
+source_file="res://stardog/Spaceship 2 - rev1.glb"
+dest_files=["res://.godot/imported/Spaceship 2 - rev1.glb-489239bb6d42217615555f0d8122c0aa.scn"]
 
 [params]
 

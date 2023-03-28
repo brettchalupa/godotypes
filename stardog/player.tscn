@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bir5l6qpu4mea"]
 
 [ext_resource type="Script" path="res://stardog/player.gd" id="1_f8exo"]
-[ext_resource type="PackedScene" uid="uid://buvuucheylcdv" path="res://stardog/Spaceship 2.glb" id="1_fjnh7"]
+[ext_resource type="PackedScene" uid="uid://cu321sdwf0xeu" path="res://stardog/Spaceship 2 - rev1.glb" id="2_vthoe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xv8i4"]
 radius = 1.14544
@@ -10,9 +10,9 @@ height = 3.82077
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_f8exo")
 
-[node name="Spaceship 2" parent="." instance=ExtResource("1_fjnh7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0230957, -0.926544, -0.818649)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2.25947e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.48787e-16, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_xv8i4")
+
+[node name="Spaceship 2 - rev1" parent="." instance=ExtResource("2_vthoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023, -0.927, -0.819)
