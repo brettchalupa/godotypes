@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://i2ss01apoxp"]
+[gd_scene load_steps=6 format=3 uid="uid://i2ss01apoxp"]
 
 [ext_resource type="Script" path="res://stardog/stardog.gd" id="1_36wgo"]
 [ext_resource type="PackedScene" uid="uid://bir5l6qpu4mea" path="res://stardog/player.tscn" id="2_82tcs"]
+[ext_resource type="Script" path="res://stardog/camera_3d.gd" id="2_ki6yl"]
 [ext_resource type="PackedScene" uid="uid://c0l60hi25uoa" path="res://stardog/asteroid.tscn" id="3_j22vc"]
 
 [sub_resource type="Environment" id="Environment_6i0wu"]
@@ -44,8 +45,10 @@ transform = Transform3D(1, 0, 0, 0, -0.85212, 0.523347, 0, -0.523347, -0.85212, 
 light_energy = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 1.25234e-13, -8.74228e-08, -2.57437e-08, 0.955659, 0.294475, 8.35464e-08, 0.294475, -0.955659, 0, 8.91516, -14.4997)
+transform = Transform3D(-1, 0, -8.74228e-08, -2.87447e-08, 0.944399, 0.328801, 8.2562e-08, 0.328801, -0.944399, 0, 7.39287, -14.4789)
 far = 200.0
+script = ExtResource("2_ki6yl")
+distance_from_player = 20
 
 [node name="Player" parent="." instance=ExtResource("2_82tcs")]
 
