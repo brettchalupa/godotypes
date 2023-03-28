@@ -27,7 +27,7 @@ offset_left = 24.0
 offset_top = 58.0
 offset_right = 410.0
 offset_bottom = 120.0
-text = "3D over-the-shoulder space shooter"
+text = "3D over-the-shoulder flyer"
 autowrap_mode = 2
 
 [node name="MainMenuButton" type="Button" parent="UI"]
@@ -96,6 +96,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5259, 84.1969, 265.676)
 
 [node name="Asteroid16" parent="." instance=ExtResource("3_j22vc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.7191, 84.1969, 298.201)
+
+[node name="Asteroid17" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3848, 84.1969, 298.201)
+
+[node name="Asteroid18" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3848, 84.1969, 387.072)
+
+[node name="Asteroid19" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4959, 103.142, 443.548)
+
+[node name="Asteroid20" parent="." instance=ExtResource("3_j22vc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8169, 103.142, 469.378)
 
 [node name="Asteroid3" parent="." instance=ExtResource("3_j22vc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.168, 0, 67.2982)
