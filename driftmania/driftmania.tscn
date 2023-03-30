@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://im3vy53matn0"]
+[gd_scene load_steps=10 format=3 uid="uid://im3vy53matn0"]
 
 [ext_resource type="PackedScene" uid="uid://dkpkcilabskfp" path="res://driftmania/sedanSports.glb" id="1_crsy6"]
 [ext_resource type="Script" path="res://driftmania/vehicle.gd" id="1_f3svl"]
 [ext_resource type="Script" path="res://driftmania/driftmania.gd" id="1_sdqfx"]
+[ext_resource type="PackedScene" uid="uid://c12iu0pp1mpxi" path="res://driftmania/ball.tscn" id="4_qori7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbbkp"]
-albedo_color = Color(0.290196, 0.407843, 0.435294, 1)
+albedo_color = Color(0.815686, 0.556863, 0.490196, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2txcu"]
 material = SubResource("StandardMaterial3D_rbbkp")
@@ -35,8 +36,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44369, 0)
 shape = SubResource("BoxShape3D_grucj")
 
 [node name="VehicleBody3D" type="VehicleBody3D" parent="."]
-engine_force = 10.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.836404, 0)
+mass = 100.0
 script = ExtResource("1_f3svl")
+max_rpm = 3200.0
+max_torque = 4800.0
+break_force = 400.0
+drift_force = 100.0
 
 [node name="sedanSports" parent="VehicleBody3D" instance=ExtResource("1_crsy6")]
 
@@ -44,14 +50,50 @@ script = ExtResource("1_f3svl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596916, 0)
 shape = SubResource("BoxShape3D_h5weg")
 
-[node name="VehicleWheel3D" type="VehicleWheel3D" parent="VehicleBody3D"]
-transform = Transform3D(-8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, 0.587677, 0.429747, -0.527464)
-engine_force = 10.0
-use_as_traction = true
+[node name="Wheel-FrontRight" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.692481, 0.429747, -0.668512)
 use_as_steering = true
+wheel_roll_influence = 0.05
+wheel_radius = 0.4
+wheel_friction_slip = 2.0
+suspension_travel = 4.0
+suspension_stiffness = 12.0
+damping_compression = 0.5
+damping_relaxation = 0.8
+
+[node name="Wheel-FrontLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.695191, 0.390196, -0.678614)
+use_as_steering = true
+wheel_roll_influence = 0.05
+wheel_radius = 0.4
+wheel_friction_slip = 2.0
+suspension_travel = 4.0
+suspension_stiffness = 12.0
+damping_compression = 0.5
+damping_relaxation = 0.8
+
+[node name="Wheel-RearRight" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.692481, 0.429747, 0.859624)
+use_as_traction = true
+wheel_roll_influence = 2.08165e-12
+wheel_radius = 0.3
+wheel_friction_slip = 2.0
+suspension_travel = 4.0
+suspension_stiffness = 20.0
+damping_compression = 0.5
+
+[node name="Wheel-RearLeft" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.695191, 0.390196, 0.849522)
+use_as_traction = true
+wheel_roll_influence = 2.08165e-12
+wheel_radius = 0.3
+wheel_friction_slip = 2.0
+suspension_travel = 4.0
+suspension_stiffness = 20.0
+damping_compression = 0.5
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.603612, 0.797279, 0, -0.797279, 0.603612, 0, 26.7177, 27.1051)
+transform = Transform3D(1, 0, 0, 0, 0.405493, 0.914098, 0, -0.914098, 0.405493, 0, 31.3101, 16.3021)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xwlti")
@@ -96,12 +138,38 @@ text = "Models by Kenney (CC0)"
 autowrap_mode = 2
 
 [node name="Instructions" type="Label" parent="UI"]
-offset_left = 1096.0
-offset_top = 592.0
-offset_right = 1248.0
-offset_bottom = 688.0
+offset_left = 1104.0
+offset_top = 560.0
+offset_right = 1256.0
+offset_bottom = 690.0
 text = "CONTROLS
 Drive: WASD
-Drift: J"
+Brake: J
+Drift: K
+Reset: R"
 horizontal_alignment = 2
 autowrap_mode = 2
+
+[node name="Ball" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3398, 5.39454, 0)
+
+[node name="Ball6" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9764, 11.9331, 0)
+
+[node name="Ball7" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40083, 5.39454, 12.7974)
+
+[node name="Ball8" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2337, 6.91867, -5.6261)
+
+[node name="Ball2" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.302, 10.36, 10.4337)
+
+[node name="Ball3" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3096, 9.30041, -9.2636)
+
+[node name="Ball4" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4981, 7.47984, 16.6072)
+
+[node name="Ball5" parent="." instance=ExtResource("4_qori7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.55683, 7.03709, -8.17911)

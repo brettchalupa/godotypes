@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c12iu0pp1mpxi"]
+
+[ext_resource type="PackedScene" uid="uid://mp7ipns8gkk2" path="res://driftmania/Ball.glb" id="1_w82tn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3qsf3"]
+radius = 0.778585
+
+[node name="RigidBody3D" type="RigidBody3D"]
+mass = 20.0
+
+[node name="Ball" parent="." instance=ExtResource("1_w82tn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0450538, 0, 0)
+shape = SubResource("SphereShape3D_3qsf3")
