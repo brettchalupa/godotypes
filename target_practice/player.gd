@@ -43,4 +43,4 @@ func _fire_weapon():
 	bullet.linear_velocity = Vector3(0, 0, BULLET_SPEED)
 	get_tree().get_root().add_child(bullet)
 	bullet.global_position = global_position
-	$BlastSfx.play()
+	Sound.play_sfx($BlastSfx)
