@@ -133,6 +133,10 @@ text = "Target Practice"
 layout_mode = 2
 text = "Stardog"
 
+[node name="DriftmaniaButton" type="Button" parent="PrototypesGrid"]
+layout_mode = 2
+text = "Driftmania"
+
 [connection signal="pressed" from="MenuOptions/Settings" to="MenuOptions" method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuOptions/Quit" to="MenuOptions" method="_on_quit_pressed"]
 [connection signal="pressed" from="PrototypesGrid/SmartInputButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["smart_input"]]
@@ -143,3 +147,4 @@ text = "Stardog"
 [connection signal="pressed" from="PrototypesGrid/VisualNovelButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["visual_novel"]]
 [connection signal="pressed" from="PrototypesGrid/TargetPracticeButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["target_practice"]]
 [connection signal="pressed" from="PrototypesGrid/StardogButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["stardog"]]
+[connection signal="pressed" from="PrototypesGrid/DriftmaniaButton" to="PrototypesGrid" method="_on_game_button_pressed" binds= ["driftmania"]]
