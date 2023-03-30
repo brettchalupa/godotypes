@@ -21,6 +21,7 @@ offset_right = 185.0
 offset_bottom = 58.0
 theme_type_variation = &"HeaderLarge"
 text = "Stardog"
+metadata/_edit_use_anchors_ = true
 
 [node name="Description" type="Label" parent="UI"]
 offset_left = 24.0
@@ -29,6 +30,7 @@ offset_right = 410.0
 offset_bottom = 120.0
 text = "3D over-the-shoulder flyer"
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="MainMenuButton" type="Button" parent="UI"]
 offset_left = 1096.0
@@ -36,6 +38,7 @@ offset_top = 24.0
 offset_right = 1253.0
 offset_bottom = 55.0
 text = "Back to Main Menu"
+metadata/_edit_use_anchors_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6i0wu")

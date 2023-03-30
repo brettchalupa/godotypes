@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://im3vy53matn0"]
+[gd_scene load_steps=9 format=3 uid="uid://im3vy53matn0"]
 
 [ext_resource type="PackedScene" uid="uid://dkpkcilabskfp" path="res://driftmania/sedanSports.glb" id="1_crsy6"]
 [ext_resource type="Script" path="res://driftmania/vehicle.gd" id="1_f3svl"]
+[ext_resource type="Script" path="res://driftmania/driftmania.gd" id="1_sdqfx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbbkp"]
 albedo_color = Color(0.290196, 0.407843, 0.435294, 1)
@@ -21,6 +22,7 @@ background_mode = 1
 background_color = Color(0.0901961, 0.486275, 1, 1)
 
 [node name="Driftmania" type="Node3D"]
+script = ExtResource("1_sdqfx")
 
 [node name="Track" type="StaticBody3D" parent="."]
 
@@ -56,3 +58,50 @@ environment = SubResource("Environment_xwlti")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0517956, 0.998658, 0, -0.998658, -0.0517956, 0, 100, 60.8577)
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 185.0
+offset_bottom = 58.0
+theme_type_variation = &"HeaderLarge"
+text = "Driftmania"
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 410.0
+offset_bottom = 120.0
+text = "Simple driving game"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="Button" parent="UI"]
+offset_left = 1096.0
+offset_top = 24.0
+offset_right = 1253.0
+offset_bottom = 55.0
+text = "Back to Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Credit" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 670.0
+offset_right = 328.0
+offset_bottom = 700.0
+text = "Models by Kenney (CC0)"
+autowrap_mode = 2
+
+[node name="Instructions" type="Label" parent="UI"]
+offset_left = 1096.0
+offset_top = 592.0
+offset_right = 1248.0
+offset_bottom = 688.0
+text = "CONTROLS
+Drive: WASD
+Drift: J"
+horizontal_alignment = 2
+autowrap_mode = 2
