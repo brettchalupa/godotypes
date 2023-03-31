@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmxmlvtr76iok"]
+
+[ext_resource type="Script" path="res://shooting_gallery/shooting_gallery.gd" id="1_ghcqr"]
+
+[node name="ShootingGallery" type="Node3D"]
+script = ExtResource("1_ghcqr")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 185.0
+offset_bottom = 58.0
+theme_type_variation = &"HeaderLarge"
+text = "Shooting Gallery"
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 58.0
+offset_right = 410.0
+offset_bottom = 120.0
+text = "First-person shooter"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="Button" parent="UI"]
+offset_left = 1096.0
+offset_top = 24.0
+offset_right = 1253.0
+offset_bottom = 55.0
+text = "Back to Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Credit" type="Label" parent="UI"]
+offset_left = 24.0
+offset_top = 670.0
+offset_right = 328.0
+offset_bottom = 700.0
+text = "Models by Kenney (CC0)"
+autowrap_mode = 2
+
+[node name="Instructions" type="Label" parent="UI"]
+offset_left = 1104.0
+offset_top = 605.0
+offset_right = 1256.0
+offset_bottom = 693.0
+text = "CONTROLS
+WASD + Mouse
+Gamepad"
+horizontal_alignment = 2
+autowrap_mode = 2
