@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmxmlvtr76iok"]
+[gd_scene load_steps=8 format=3 uid="uid://be77826s6oaq6"]
 
 [ext_resource type="Script" path="res://shooting_gallery/shooting_gallery.gd" id="1_ghcqr"]
+[ext_resource type="PackedScene" uid="uid://bsv2dw3w0ue1o" path="res://shooting_gallery/player.tscn" id="2_70cew"]
+
+[sub_resource type="Sky" id="Sky_27vbn"]
+
+[sub_resource type="Environment" id="Environment_ik53i"]
+background_mode = 2
+sky = SubResource("Sky_27vbn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn8tn"]
+albedo_color = Color(0.301961, 0.454902, 0.396078, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_81cse"]
+material = SubResource("StandardMaterial3D_kn8tn")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0i01n"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
 [node name="ShootingGallery" type="Node3D"]
 script = ExtResource("1_ghcqr")
@@ -51,3 +67,27 @@ WASD + Mouse
 Gamepad"
 horizontal_alignment = 2
 autowrap_mode = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ik53i")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.556484, 0.830858, 0, -0.830858, 0.556484, -3.12058, 2.55553, 3.29447)
+light_energy = 2.0
+
+[node name="Player" parent="." instance=ExtResource("2_70cew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62292, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54033, -0.373856)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_81cse")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0i01n")
