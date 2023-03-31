@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://be77826s6oaq6"]
+[gd_scene load_steps=11 format=3 uid="uid://be77826s6oaq6"]
 
 [ext_resource type="Script" path="res://shooting_gallery/shooting_gallery.gd" id="1_ghcqr"]
 [ext_resource type="PackedScene" uid="uid://bsv2dw3w0ue1o" path="res://shooting_gallery/player.tscn" id="2_70cew"]
@@ -16,6 +16,15 @@ albedo_color = Color(0.301961, 0.454902, 0.396078, 1)
 material = SubResource("StandardMaterial3D_kn8tn")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0i01n"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ftsi"]
+albedo_color = Color(0.811765, 0.709804, 0.74902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cce1w"]
+material = SubResource("StandardMaterial3D_7ftsi")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_inwje"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
 [node name="ShootingGallery" type="Node3D"]
@@ -73,8 +82,8 @@ autowrap_mode = 2
 environment = SubResource("Environment_ik53i")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.556484, 0.830858, 0, -0.830858, 0.556484, -3.12058, 2.55553, 3.29447)
-light_energy = 2.0
+transform = Transform3D(0.573313, 0.819203, -0.0147578, -0.431304, 0.317061, 0.844659, 0.696626, -0.477889, 0.535101, -3.12058, 43.4737, 11.5829)
+light_bake_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("2_70cew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62292, 0)
@@ -89,3 +98,48 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_0i01n")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(4.51894e-14, 8.74228e-07, 20, 20, -8.74228e-07, -6.97573e-15, 8.74228e-07, 20, -8.74228e-07, 2.08165e-12, 1.157, -18.252)
+mesh = SubResource("PlaneMesh_cce1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(4.51894e-14, 8.74228e-07, 20, 20, -8.74228e-07, -6.97573e-15, 8.74228e-07, 20, -8.74228e-07, 2.08165e-12, 1.157, -18.252)
+shape = SubResource("ConvexPolygonShape3D_inwje")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(2.38498e-07, 20, 6.97574e-15, -20, 2.38498e-07, -6.97574e-15, -6.97574e-15, -6.97574e-15, 20, -19.8014, 1.157, 1.69761)
+mesh = SubResource("PlaneMesh_cce1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+transform = Transform3D(2.38498e-07, 20, 6.97574e-15, -20, 2.38498e-07, -6.97574e-15, -6.97574e-15, -6.97574e-15, 20, -19.8014, 1.157, 1.69761)
+shape = SubResource("ConvexPolygonShape3D_inwje")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+transform = Transform3D(-1.74008e-14, -2.38498e-07, -20, 20, -8.74228e-07, -6.97574e-15, -8.74228e-07, -20, 2.38498e-07, 0.122967, 1.157, 19.5909)
+mesh = SubResource("PlaneMesh_cce1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+transform = Transform3D(-1.74008e-14, -2.38498e-07, -20, 20, -8.74228e-07, -6.97574e-15, -8.74228e-07, -20, 2.38498e-07, 0.122967, 1.157, 19.5909)
+shape = SubResource("ConvexPolygonShape3D_inwje")
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+transform = Transform3D(-8.74228e-07, -20, 6.97574e-15, 20, -8.74228e-07, -6.97574e-15, 6.97574e-15, 6.97574e-15, 20, 20.3755, 1.157, 0.936653)
+mesh = SubResource("PlaneMesh_cce1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+transform = Transform3D(-8.74228e-07, -20, 6.97574e-15, 20, -8.74228e-07, -6.97574e-15, 6.97574e-15, 6.97574e-15, 20, 20.3755, 1.157, 0.936653)
+shape = SubResource("ConvexPolygonShape3D_inwje")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6694, -0.536144)
+light_energy = 2.0
+omni_range = 100.0
