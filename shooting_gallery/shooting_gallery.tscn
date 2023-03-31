@@ -58,13 +58,14 @@ text = "Models by Kenney (CC0)"
 autowrap_mode = 2
 
 [node name="Instructions" type="Label" parent="UI"]
-offset_left = 1104.0
+offset_left = 1048.0
 offset_top = 605.0
 offset_right = 1256.0
-offset_bottom = 693.0
+offset_bottom = 709.0
 text = "CONTROLS
 WASD + Mouse
-Gamepad"
+Gamepad
+K/X: Toggle Mouse Capture"
 horizontal_alignment = 2
 autowrap_mode = 2
 
@@ -77,9 +78,6 @@ light_energy = 2.0
 
 [node name="Player" parent="." instance=ExtResource("2_70cew")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62292, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54033, -0.373856)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
