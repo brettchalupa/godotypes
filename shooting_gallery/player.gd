@@ -9,6 +9,7 @@ const LOOK_SENSITIVITY = 0.02
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera:Camera3D = $Camera3D
+@onready var blaster:Node3D = $blasterD
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
