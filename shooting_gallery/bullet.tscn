@@ -7,12 +7,13 @@ radius = 0.0144224
 height = 0.0634845
 
 [node name="Bullet" type="RigidBody3D"]
-mass = 0.01
-gravity_scale = 0.4
+collision_layer = 3
+collision_mask = 3
+mass = 0.2
 
 [node name="foamBulletB-low" parent="." instance=ExtResource("1_u3cg8")]
-transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(5.73206e-15, 1.31134e-07, -3, 3, -1.31134e-07, 7.06519e-23, -1.31134e-07, -3, -1.31134e-07, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-8.74228e-08, -2, 6.97574e-16, 2, -8.74228e-08, -6.97574e-16, 6.97574e-16, 6.97574e-16, 2, 0, 0, 0)
+transform = Transform3D(4.6857e-15, 1.31134e-07, -3, 3, -1.31134e-07, -1.04636e-15, -1.31134e-07, -3, -1.31134e-07, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_rb466")

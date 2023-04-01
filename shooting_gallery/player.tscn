@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsv2dw3w0ue1o"]
+[gd_scene load_steps=7 format=3 uid="uid://bsv2dw3w0ue1o"]
 
 [ext_resource type="Script" path="res://shooting_gallery/player.gd" id="1_n6gbk"]
 [ext_resource type="PackedScene" uid="uid://rppkrfhmc60d" path="res://shooting_gallery/blasterD.glb" id="2_i6ox8"]
 [ext_resource type="PackedScene" uid="uid://8fws3kn1w4nj" path="res://shooting_gallery/bullet.tscn" id="2_mjg2i"]
+[ext_resource type="AudioStream" uid="uid://cf4ue8cjoe164" path="res://assets/sfx/laserShoot.wav" id="4_asjkq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8hhwr"]
 
@@ -26,4 +27,12 @@ transform = Transform3D(-0.998445, 0, 0.0557517, 0, 1, 0, -0.0557517, 0, -0.9984
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.327471)
-target_position = Vector3(2.08165e-12, 2.08165e-12, -1)
+target_position = Vector3(2.08165e-12, 2.08165e-12, -100)
+
+[node name="FirePoint" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.831041)
+gizmo_extents = 0.22
+
+[node name="FireSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_asjkq")
+volume_db = -10.0

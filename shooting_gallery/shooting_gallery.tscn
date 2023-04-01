@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://be77826s6oaq6"]
+[gd_scene load_steps=13 format=3 uid="uid://be77826s6oaq6"]
 
 [ext_resource type="Script" path="res://shooting_gallery/shooting_gallery.gd" id="1_ghcqr"]
 [ext_resource type="PackedScene" uid="uid://bsv2dw3w0ue1o" path="res://shooting_gallery/player.tscn" id="2_70cew"]
 [ext_resource type="Texture2D" uid="uid://ctbjg3x5wlu6i" path="res://shooting_gallery/crosshair010.png" id="3_kwcrq"]
+[ext_resource type="PackedScene" uid="uid://ibq18xvdmwmw" path="res://shooting_gallery/target.tscn" id="4_0tomv"]
 
 [sub_resource type="Sky" id="Sky_27vbn"]
 
@@ -150,3 +151,12 @@ modulate = Color(1, 1, 1, 0.784314)
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_kwcrq")
+
+[node name="Target" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5.48241, -12.2042)
+
+[node name="Target2" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.02863, 2.62974, -12.2042)
+
+[node name="Target3" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.22795, 2.62974, -12.2042)

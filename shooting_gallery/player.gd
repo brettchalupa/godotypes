@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+const BULLET_FORCE = 80
 func _input(event):
 	if event.is_action_pressed("shooting_gallery_toggle_mouse_mode"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
@@ -44,10 +45,9 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 
 	if event.is_action_pressed("shooting_gallery_fire"):
+		$FireSfx.play()
 		var bullet = bullet_scene.instantiate()
 		get_tree().get_root().add_child(bullet)
-		bullet.global_position = $Camera3D/blasterD.global_position
-		bullet.rotation = $Camera3D/blasterD.rotation
-		bullet.linear_velocity = Vector3(40, 0, 40)
-		# Sound.play_sfx($BlastSfx)
-		# thoughts: shoot along a raycast?
+		bullet.global_position = $Camera3D/FirePoint.global_position
+		bullet.look_at($Camera3D/RayCast3D.get_collision_point(), Vector3.UP)
+		bullet.apply_impulse(-bullet.transform.basis.z * BULLET_FORCE, bullet.transform.basis.z)
