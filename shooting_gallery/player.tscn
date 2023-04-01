@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsv2dw3w0ue1o"]
+[gd_scene load_steps=6 format=3 uid="uid://bsv2dw3w0ue1o"]
 
 [ext_resource type="Script" path="res://shooting_gallery/player.gd" id="1_n6gbk"]
 [ext_resource type="PackedScene" uid="uid://rppkrfhmc60d" path="res://shooting_gallery/blasterD.glb" id="2_i6ox8"]
+[ext_resource type="PackedScene" uid="uid://8fws3kn1w4nj" path="res://shooting_gallery/bullet.tscn" id="2_mjg2i"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8hhwr"]
 
@@ -9,6 +10,7 @@
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_n6gbk")
+bullet_scene = ExtResource("2_mjg2i")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_8hhwr")
@@ -21,3 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54033, -0.373856)
 
 [node name="blasterD" parent="Camera3D" instance=ExtResource("2_i6ox8")]
 transform = Transform3D(-0.998445, 0, 0.0557517, 0, 1, 0, -0.0557517, 0, -0.998445, 0.164113, -0.228984, -0.328554)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.327471)
+target_position = Vector3(2.08165e-12, 2.08165e-12, -1)

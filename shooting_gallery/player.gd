@@ -8,6 +8,7 @@ const LOOK_SENSITIVITY = 0.02
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@export var bullet_scene:PackedScene
 @onready var camera:Camera3D = $Camera3D
 @onready var blaster:Node3D = $blasterD
 
@@ -41,3 +42,12 @@ func _input(event):
 		rotate_y(-event.relative.x * LOOK_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * LOOK_SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+
+	if event.is_action_pressed("shooting_gallery_fire"):
+		var bullet = bullet_scene.instantiate()
+		get_tree().get_root().add_child(bullet)
+		bullet.global_position = $Camera3D/blasterD.global_position
+		bullet.rotation = $Camera3D/blasterD.rotation
+		bullet.linear_velocity = Vector3(40, 0, 40)
+		# Sound.play_sfx($BlastSfx)
+		# thoughts: shoot along a raycast?

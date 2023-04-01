@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8fws3kn1w4nj"]
+
+[ext_resource type="PackedScene" uid="uid://cdpkwa8lsp3l3" path="res://shooting_gallery/foamBulletB-low.glb" id="1_u3cg8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rb466"]
+radius = 0.0144224
+height = 0.0634845
+
+[node name="Bullet" type="RigidBody3D"]
+mass = 0.01
+gravity_scale = 0.4
+
+[node name="foamBulletB-low" parent="." instance=ExtResource("1_u3cg8")]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-8.74228e-08, -2, 6.97574e-16, 2, -8.74228e-08, -6.97574e-16, 6.97574e-16, 6.97574e-16, 2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_rb466")
