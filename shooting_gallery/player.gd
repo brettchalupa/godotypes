@@ -13,6 +13,14 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var blaster:Node3D = $blasterD
 
 func _physics_process(delta: float) -> void:
+	var joypad_camera_vec = Input.get_vector("shooting_gallery_look_down", "shooting_gallery_look_up", "shooting_gallery_look_right", "shooting_gallery_look_left")
+
+	if joypad_camera_vec.x != 0.0:
+		camera.rotate_x(joypad_camera_vec.x * LOOK_SENSITIVITY)
+		clamp_camera_rot()
+	if joypad_camera_vec.y != 0.0:
+		rotate_y(joypad_camera_vec.y * LOOK_SENSITIVITY)
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -33,6 +41,14 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("shooting_gallery_fire"):
+		$FireSfx.play()
+		var bullet = bullet_scene.instantiate()
+		get_tree().get_root().add_child(bullet)
+		bullet.global_position = $Camera3D/FirePoint.global_position
+		bullet.look_at($Camera3D/RayCast3D.get_collision_point(), Vector3.UP)
+		bullet.apply_impulse(-bullet.transform.basis.z * BULLET_FORCE, bullet.transform.basis.z)
 
 const BULLET_FORCE = 80
 func _input(event):
@@ -42,12 +58,7 @@ func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * LOOK_SENSITIVITY)
 		camera.rotate_x(-event.relative.y * LOOK_SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
+		clamp_camera_rot()
 
-	if event.is_action_pressed("shooting_gallery_fire"):
-		$FireSfx.play()
-		var bullet = bullet_scene.instantiate()
-		get_tree().get_root().add_child(bullet)
-		bullet.global_position = $Camera3D/FirePoint.global_position
-		bullet.look_at($Camera3D/RayCast3D.get_collision_point(), Vector3.UP)
-		bullet.apply_impulse(-bullet.transform.basis.z * BULLET_FORCE, bullet.transform.basis.z)
+func clamp_camera_rot():
+	camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
