@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("shooting_gallery_fire"):
-		$FireSfx.play()
+		Sound.play_sfx($FireSfx)
 		var bullet = bullet_scene.instantiate()
 		get_tree().get_root().add_child(bullet)
 		bullet.global_position = $Camera3D/FirePoint.global_position
