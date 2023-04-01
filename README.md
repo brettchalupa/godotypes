@@ -1,10 +1,14 @@
 # Godotypes
 
-Godot prototypes & experiments
+Godot prototypes & experiments dedicated to the public domain.
 
 Made with Godot 4.0.
 
-**Note**: none of the prototypes are intended to be polished, and the code may not be particularly good!
+**Note**: none of the prototypes are intended to be polished, and the code may not be particularly good.
+
+[🎮 Play the prototypes on itch.io!](https://brettchalupa.itch.io/godotypes)
+
+[📺 Watch the devlog](https://www.youtube.com/watch?v=pJ-wlh9LQkw)
 
 ## Developing
 
