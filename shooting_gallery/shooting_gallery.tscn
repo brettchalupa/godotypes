@@ -153,7 +153,19 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_kwcrq")
 
 [node name="Target" parent="." instance=ExtResource("4_0tomv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 5.48241, -12.2042)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 7.21698, -12.2042)
+
+[node name="Target4" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9421, 4.89791, 4.28836)
+
+[node name="Target5" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9421, 4.89791, -3.21709)
+
+[node name="Target6" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9421, 12.3628, 0.883641)
+
+[node name="Target7" parent="." instance=ExtResource("4_0tomv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9421, 12.0578, 9.77425)
 
 [node name="Target2" parent="." instance=ExtResource("4_0tomv")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.02863, 2.62974, -12.2042)
