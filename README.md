@@ -8,7 +8,7 @@ Made with Godot 4.0.
 
 [🎮 Play the prototypes on itch.io!](https://brettchalupa.itch.io/godotypes)
 
-[📺 Watch the devlog](https://www.youtube.com/watch?v=pJ-wlh9LQkw)
+📺 Watch the devlogs: [Part 1](https://www.youtube.com/watch?v=pJ-wlh9LQkw), [Part 2](https://www.youtube.com/watch?v=ozIQITatK3A)
 
 ## Developing
 
