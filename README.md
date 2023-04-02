@@ -10,6 +10,17 @@ Made with Godot 4.0.
 
 📺 Watch the devlogs: [Part 1](https://www.youtube.com/watch?v=pJ-wlh9LQkw), [Part 2](https://www.youtube.com/watch?v=ozIQITatK3A)
 
+The types of games contained within:
+
+- 2D shmup
+- 2D platformer
+- 2D action shooter
+- visual novel
+- 3D shmup
+- 3D flight
+- 3D car driver
+- 3D FPS
+
 ## Developing
 
 0. Install Godot 4.0
